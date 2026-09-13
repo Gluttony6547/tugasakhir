@@ -9,3 +9,4 @@ Prog1/.venv/
 /tf_model.h5
 /resnet50_weights_tf_dim_ordering_tf_kernels.h5
 /mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_224.h5
+.vercel

@@ -6,6 +6,7 @@ sigmoid layer without importing TensorFlow.
 """
 
 from datetime import datetime
+import json
 from math import exp, isfinite
 from pathlib import Path
 
@@ -14,6 +15,7 @@ from flask import Flask, jsonify, render_template, request
 
 ROOT = Path(__file__).resolve().parents[1]
 PROG1 = ROOT / "Prog1"
+METRICS_PATH = PROG1 / "model_metrics.json"
 app = Flask(
     __name__,
     template_folder=str(PROG1 / "templates"),
@@ -44,6 +46,26 @@ def predict_values(values: list[float]) -> tuple[int | None, float, str]:
     return int(probability >= 0.5), probability, "reliable"
 
 
+def describe_prediction(values: list[float], label: int | None, probability: float) -> dict:
+    contributions = [value * weight for value, weight in zip(values, WEIGHTS)]
+    if label is None:
+        class_name = "Belum pasti"
+        explanation = "Probabilitas terlalu dekat dengan ambang; label tidak dipaksakan."
+    elif label == 1:
+        class_name = "Sinyal positif"
+        explanation = "Kombinasi fitur lebih kuat mengarah ke kelas 1."
+    else:
+        class_name = "Sinyal negatif"
+        explanation = "Kombinasi fitur lebih kuat mengarah ke kelas 0."
+    return {
+        "class_name": class_name,
+        "explanation": explanation,
+        "class_1_probability": round(probability, 4),
+        "decision_margin": round(abs(probability - 0.5), 4),
+        "feature_contributions": [round(value, 4) for value in contributions],
+    }
+
+
 @app.get("/")
 def index():
     return render_template("index.html")
@@ -51,6 +73,7 @@ def index():
 
 @app.get("/api/health")
 def health():
+    metrics = json.loads(METRICS_PATH.read_text(encoding="utf-8")) if METRICS_PATH.exists() else None
     return jsonify(
         {
             "status": "ready",
@@ -58,6 +81,7 @@ def health():
             "input_shape": [3],
             "feature_range": [FEATURE_MIN, FEATURE_MAX],
             "abstain_threshold": ABSTAIN_THRESHOLD,
+            "metrics": metrics,
         }
     )
 
@@ -88,6 +112,7 @@ def predict():
         "features": values,
         "time": datetime.now().strftime("%H:%M:%S"),
     }
+    result.update(describe_prediction(values, label, probability))
     recent_runs.insert(0, result)
     del recent_runs[5:]
     return jsonify(result)
