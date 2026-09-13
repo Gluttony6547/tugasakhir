@@ -1,0 +1,8 @@
+{
+  "validation_accuracy": 1.0,
+  "holdout_accuracy": 0.9972,
+  "reliable_accuracy": 1.0,
+  "coverage": 0.9772,
+  "samples": 4000,
+  "scope": "synthetic demo signal only"
+}

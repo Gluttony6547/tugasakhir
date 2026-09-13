@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+Prog1/.venv/
+.env
+.vercel/
+# Large pretrained artifacts are kept locally and are not required by the
+# Flask demo or the lightweight Vercel entrypoint.
+/tf_model.h5
+/resnet50_weights_tf_dim_ordering_tf_kernels.h5
+/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_224.h5

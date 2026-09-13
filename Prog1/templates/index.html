@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H5 Lab · Model Playground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='refinements.css') }}" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">H5 Lab</a>
+      <div class="model-status"><span class="status-dot"></span><span>Local model</span><span class="chevron">⌄</span></div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro"><h1>Model Playground</h1><p>Live inference</p></section>
+
+      <section class="workspace">
+        <form id="prediction-form" class="panel input-panel">
+          <div class="panel-heading"><h2>Input vector</h2><span class="mono">3 features</span></div>
+          <div class="field-list">
+            <label><span>Feature 1</span><input name="feature1" type="number" min="-2" max="2" step="0.01" value="0.72" required /></label>
+            <label><span>Feature 2</span><input name="feature2" type="number" min="-2" max="2" step="0.01" value="-1.36" required /></label>
+            <label><span>Feature 3</span><input name="feature3" type="number" min="-2" max="2" step="0.01" value="0.18" required /></label>
+          </div>
+          <button class="primary-button" type="submit"><span>Run prediction</span><span class="arrow">→</span></button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+
+        <section class="panel output-panel">
+          <div class="panel-heading"><h2>Prediction output</h2><span class="live-label">● live</span></div>
+          <div class="result-box"><strong id="prediction-value">—</strong><span id="probability-label">hasil hanya ditampilkan jika cukup yakin</span></div>
+          <div class="confidence-row"><div><h3>Confidence</h3><div class="bar"><span id="confidence-bar"></span></div></div><strong id="confidence-value">—</strong></div>
+          <p id="decision-summary" class="decision-summary">Masukkan input untuk melihat keputusan model dan penjelasannya.</p>
+          <div class="trend-box"><h3>Recent trend <span>(last 3 runs)</span></h3><div class="trend" id="trend"><i></i><i></i><i></i></div><div class="trend-axis"><span>0</span><span>1</span><span>2</span></div></div>
+        </section>
+      </section>
+
+      <section class="lower-grid">
+        <section class="panel runs-panel"><div class="panel-heading"><h2>Recent runs</h2><span class="mono">in memory</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Feature 1</th><th>Feature 2</th><th>Feature 3</th><th>Output</th><th>Confidence</th><th>Time</th></tr></thead><tbody id="runs-body"><tr><td colspan="7" class="empty">Belum ada inference. Jalankan model untuk melihat riwayat.</td></tr></tbody></table></div></section>
+        <section class="panel health-panel"><div class="panel-heading"><h2>Model health</h2><button id="reload-button" class="ghost-button">Reload model</button></div><div class="health-intro"><span class="health-orb"></span><div><strong>Model healthy</strong><p class="mono">./model.h5</p><p>Ready for inference</p></div></div><dl><div><dt>Model file</dt><dd class="mono">./model.h5</dd></div><div><dt>Status</dt><dd id="health-status">Checking…</dd></div></dl></section>
+      </section>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.result-box strong {
+  max-width: 92%;
+  font-size: clamp(28px, 3.2vw, 42px);
+  text-align: center;
+}
+
+.result-box span {
+  letter-spacing: 1.1px;
+}
+
+.decision-summary {
+  min-height: 40px;
+  margin: 13px 0 0;
+  color: #735335;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.trend-box { margin-top: 18px; }
