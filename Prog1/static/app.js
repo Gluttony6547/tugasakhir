@@ -37,9 +37,12 @@ form.addEventListener('submit', async (event) => {
     document.querySelector('#confidence-value').textContent = result.confidence.toFixed(2);
     confidenceBar.style.width = `${result.confidence * 100}%`;
     renderRuns(await (await fetch('/api/runs')).json());
+    const impacts = Array.isArray(result.feature_contributions)
+      ? result.feature_contributions.map((value, index) => `F${index + 1} ${value >= 0 ? '+' : ''}${value.toFixed(2)}`).join(', ')
+      : 'tersedia setelah response model terbaru';
     message.textContent = result.status === 'uncertain'
       ? 'Model belum cukup yakin; hasil tidak dipaksakan menjadi 0 atau 1.'
-      : `Keputusan selesai. Dampak fitur: ${result.feature_contributions.map((value, index) => `F${index + 1} ${value >= 0 ? '+' : ''}${value.toFixed(2)}`).join(', ')}.`;
+      : `Keputusan selesai. Dampak fitur: ${impacts}.`;
   } catch (error) { message.textContent = error.message; }
   finally { button.disabled = false; }
 });
