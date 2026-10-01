@@ -1,0 +1,8 @@
+/* State-specific accents keep SELL/HOLD readable against the dashboard shell. */
+.signal:has(#signal.sell) { border-color: #881337; background: linear-gradient(105deg, #2b0b18, #141116); }
+.signal:has(#signal.hold) { border-color: #3f3f46; background: linear-gradient(105deg, #202024, #141416); }
+.signal #signal.sell, .majority b.sell { color: var(--red); }
+.signal #signal.hold, .majority b.hold { color: var(--dim); }
+.signal #signal.buy { color: var(--green); }
+.ticker-bar .ticker:not(.active) { background: transparent; border: 1px solid transparent; }
+.ticker-bar .ticker:not(.active):hover { background: var(--panel2); border-color: var(--line); }

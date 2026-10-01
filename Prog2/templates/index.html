@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hybrid Signal Engine · Research Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='refinements.css') }}">
+</head>
+<body>
+  <aside class="rail"><div class="rail-mark">▥</div><nav><a class="active" title="Dashboard">⌂<span>Dashboard</span></a><a title="Watchlist">☆<span>Watchlist</span></a><a title="Signals">⌁<span>Signals</span></a><a title="Research">▤<span>Research</span></a><a title="Settings">⚙<span>Settings</span></a></nav><div class="rail-foot">V2</div></aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="top-title"><h1>Hybrid Signal Engine</h1><span class="sync"><i></i> Pipeline Status: Synced at 16:00 WIB</span></div><div class="top-actions"><label class="search">⌕<input id="search" placeholder="Search ticker (e.g. ADRO.JK)"/><kbd>/</kbd></label><select id="horizon"><option>50D HORIZON</option></select></div></header>
+    <div class="ticker-bar" id="ticker-bar"></div>
+    <main>
+      <section class="hero-row"><div class="identity panel"><div><span class="eyebrow">ACTIVE RESEARCH TICKER</span><h2 id="symbol">ADRO.JK</h2><p id="company">Adaro Energy Indonesia</p></div><span class="market-tag">IDX LQ45</span></div><div class="signal panel"><div><strong id="signal">BUY</strong><span>Final ensemble signal</span></div><div class="signal-stat"><b id="consensus">3/3</b><span>Path consensus</span></div><div class="signal-stat"><b id="confidence">82%</b><span>Confidence</span></div></div></section>
+      <section class="metrics panel"><div><span>Latest close</span><b id="close">Rp 2,950</b><em id="change">+2.15%</em></div><div><span>50-day target</span><b id="target">Rp 3,428</b><em id="upside">+16.2% implied</em></div><div><span>RSI (14)</span><b id="rsi">56.8</b><em>Neutral</em></div><div><span>MACD</span><b id="macd">+115.8</b><em class="positive">Bullish bias</em></div><div><span>Sentiment</span><b id="sentiment">Positive</b><em id="news-count">2 / 0 / 0 mix</em></div></section>
+      <section class="content-grid"><div class="left-col"><section class="panel chart-panel"><div class="section-head"><div><h3>Technical chart</h3><p id="chart-meta">Daily close · 70 observations</p></div><div class="chart-controls"><button class="selected">3M</button><button>6M</button><button>1Y</button><button>ALL</button></div></div><div class="legend"><span><i class="candle"></i>Price</span><span><i class="line blue"></i>SMA 20</span><span><i class="line amber"></i>SMA 50</span><span><i class="line violet"></i>EMA 20</span><span><i class="line grey"></i>Bollinger (20, 2)</span></div><canvas id="chart" height="300"></canvas><div class="chart-axis" id="chart-axis"></div></section><section class="panel feed-panel"><div class="section-head"><div><h3>Multimodal sentiment feed</h3><p>News adjusted to IDX trading calendar</p></div><select><option>All sources</option></select></div><div id="news" class="news-list"></div></section></div>
+      <div class="right-col"><section class="panel consensus-panel"><div class="section-head"><div><h3>3-path consensus</h3><p>Transparent inference breakdown</p></div><strong class="consensus-badge" id="consensus-badge">3/3 BULLISH</strong></div><div id="paths"></div><div class="majority"><div><span>Final decision gate</span><b id="majority-signal">BUY</b></div><div class="gate-arrow">↓</div><div class="majority-meta"><span>Majority voting · ensemble</span><strong id="majority-score">3 / 3 paths</strong></div></div></section><section class="panel history-panel"><div class="section-head"><div><h3>Prediction history</h3><p>Target horizon: 50 trading days</p></div><button id="export">⇩ Export CSV</button></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Close (Rp)</th><th>Ground truth</th><th>Prediction</th><th>Outcome</th></tr></thead><tbody id="history"></tbody></table></div><div class="table-foot"><span id="history-count">Showing latest research rows</span><div>‹ <b>1</b> 2 3 ›</div></div></section></div></section>
+    </main><footer><span>IDX LQ45 · Hybrid Multimodal Ensemble for Indonesian Equities</span><span>Research use only&nbsp; · &nbsp;Not investment advice</span></footer>
+  </div><script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>

@@ -1,0 +1,5556 @@
+{
+  "generated_from": "C:\\SMT_7\\PRATAAA\\CODE",
+  "horizon": 50,
+  "stocks": {
+    "ADRO": {
+      "symbol": "ADRO.JK",
+      "name": "Adaro Energy Indonesia",
+      "sector": "Energy",
+      "date": "2023-09-25",
+      "close": 2950.0,
+      "previous_close": 2950.0,
+      "sentiment": 2,
+      "rsi": 68.46,
+      "macd": 97.54,
+      "macd_signal": 97.03,
+      "target_price": 2502.67,
+      "model_date": "2023-09-25",
+      "signal": 0,
+      "consensus": "3/3",
+      "paths": [
+        0,
+        0,
+        0
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.709,
+          "f1": 0.7051
+        },
+        "Deep Learning": {
+          "accuracy": 0.8893,
+          "f1": 0.89
+        },
+        "Machine Learning": {
+          "accuracy": 0.8361,
+          "f1": 0.8365
+        },
+        "Ensemble Model": {
+          "accuracy": 0.8934,
+          "f1": 0.8942
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.8934,
+          "f1": 0.8942
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 2210.0,
+          "sma20": 2288.5,
+          "sma50": 2665.0
+        },
+        {
+          "date": "Jun 14",
+          "close": 2250.0,
+          "sma20": 2263.0,
+          "sma50": 2655.6
+        },
+        {
+          "date": "Jun 15",
+          "close": 2300.0,
+          "sma20": 2245.0,
+          "sma50": 2647.0
+        },
+        {
+          "date": "Jun 16",
+          "close": 2320.0,
+          "sma20": 2227.5,
+          "sma50": 2639.8
+        },
+        {
+          "date": "Jun 19",
+          "close": 2260.0,
+          "sma20": 2213.5,
+          "sma50": 2631.4
+        },
+        {
+          "date": "Jun 20",
+          "close": 2270.0,
+          "sma20": 2206.5,
+          "sma50": 2621.4
+        },
+        {
+          "date": "Jun 21",
+          "close": 2260.0,
+          "sma20": 2196.5,
+          "sma50": 2609.0
+        },
+        {
+          "date": "Jun 22",
+          "close": 2260.0,
+          "sma20": 2195.0,
+          "sma50": 2596.8
+        },
+        {
+          "date": "Jun 23",
+          "close": 2230.0,
+          "sma20": 2194.0,
+          "sma50": 2583.4
+        },
+        {
+          "date": "Jun 26",
+          "close": 2210.0,
+          "sma20": 2198.5,
+          "sma50": 2568.8
+        },
+        {
+          "date": "Jun 27",
+          "close": 2230.0,
+          "sma20": 2205.5,
+          "sma50": 2552.4
+        },
+        {
+          "date": "Jul 03",
+          "close": 2330.0,
+          "sma20": 2218.5,
+          "sma50": 2537.8
+        },
+        {
+          "date": "Jul 04",
+          "close": 2340.0,
+          "sma20": 2230.0,
+          "sma50": 2524.2
+        },
+        {
+          "date": "Jul 05",
+          "close": 2420.0,
+          "sma20": 2249.0,
+          "sma50": 2512.8
+        },
+        {
+          "date": "Jul 06",
+          "close": 2450.0,
+          "sma20": 2266.5,
+          "sma50": 2500.8
+        },
+        {
+          "date": "Jul 07",
+          "close": 2380.0,
+          "sma20": 2274.5,
+          "sma50": 2489.2
+        },
+        {
+          "date": "Jul 10",
+          "close": 2420.0,
+          "sma20": 2287.0,
+          "sma50": 2478.4
+        },
+        {
+          "date": "Jul 11",
+          "close": 2430.0,
+          "sma20": 2298.5,
+          "sma50": 2468.6
+        },
+        {
+          "date": "Jul 12",
+          "close": 2370.0,
+          "sma20": 2307.5,
+          "sma50": 2458.8
+        },
+        {
+          "date": "Jul 13",
+          "close": 2320.0,
+          "sma20": 2313.0,
+          "sma50": 2445.2
+        },
+        {
+          "date": "Jul 14",
+          "close": 2360.0,
+          "sma20": 2320.5,
+          "sma50": 2430.4
+        },
+        {
+          "date": "Jul 17",
+          "close": 2380.0,
+          "sma20": 2327.0,
+          "sma50": 2416.4
+        },
+        {
+          "date": "Jul 18",
+          "close": 2330.0,
+          "sma20": 2328.5,
+          "sma50": 2400.4
+        },
+        {
+          "date": "Jul 20",
+          "close": 2370.0,
+          "sma20": 2331.0,
+          "sma50": 2388.2
+        },
+        {
+          "date": "Jul 21",
+          "close": 2420.0,
+          "sma20": 2339.0,
+          "sma50": 2377.8
+        },
+        {
+          "date": "Jul 24",
+          "close": 2470.0,
+          "sma20": 2349.0,
+          "sma50": 2368.8
+        },
+        {
+          "date": "Jul 25",
+          "close": 2430.0,
+          "sma20": 2357.5,
+          "sma50": 2361.6
+        },
+        {
+          "date": "Jul 26",
+          "close": 2500.0,
+          "sma20": 2369.5,
+          "sma50": 2354.2
+        },
+        {
+          "date": "Jul 27",
+          "close": 2450.0,
+          "sma20": 2380.5,
+          "sma50": 2345.4
+        },
+        {
+          "date": "Jul 28",
+          "close": 2470.0,
+          "sma20": 2393.5,
+          "sma50": 2336.0
+        },
+        {
+          "date": "Jul 31",
+          "close": 2410.0,
+          "sma20": 2402.5,
+          "sma50": 2328.2
+        },
+        {
+          "date": "Aug 01",
+          "close": 2390.0,
+          "sma20": 2405.5,
+          "sma50": 2320.8
+        },
+        {
+          "date": "Aug 02",
+          "close": 2370.0,
+          "sma20": 2407.0,
+          "sma50": 2315.0
+        },
+        {
+          "date": "Aug 03",
+          "close": 2360.0,
+          "sma20": 2404.0,
+          "sma50": 2308.8
+        },
+        {
+          "date": "Aug 04",
+          "close": 2400.0,
+          "sma20": 2401.5,
+          "sma50": 2306.0
+        },
+        {
+          "date": "Aug 07",
+          "close": 2380.0,
+          "sma20": 2401.5,
+          "sma50": 2305.4
+        },
+        {
+          "date": "Aug 08",
+          "close": 2370.0,
+          "sma20": 2399.0,
+          "sma50": 2303.6
+        },
+        {
+          "date": "Aug 09",
+          "close": 2400.0,
+          "sma20": 2397.5,
+          "sma50": 2305.8
+        },
+        {
+          "date": "Aug 10",
+          "close": 2410.0,
+          "sma20": 2399.5,
+          "sma50": 2309.0
+        },
+        {
+          "date": "Aug 11",
+          "close": 2350.0,
+          "sma20": 2401.0,
+          "sma50": 2313.6
+        },
+        {
+          "date": "Aug 14",
+          "close": 2390.0,
+          "sma20": 2402.5,
+          "sma50": 2319.6
+        },
+        {
+          "date": "Aug 15",
+          "close": 2510.0,
+          "sma20": 2409.0,
+          "sma50": 2328.4
+        },
+        {
+          "date": "Aug 16",
+          "close": 2520.0,
+          "sma20": 2418.5,
+          "sma50": 2336.6
+        },
+        {
+          "date": "Aug 18",
+          "close": 2540.0,
+          "sma20": 2427.0,
+          "sma50": 2346.6
+        },
+        {
+          "date": "Aug 21",
+          "close": 2620.0,
+          "sma20": 2437.0,
+          "sma50": 2357.0
+        },
+        {
+          "date": "Aug 22",
+          "close": 2700.0,
+          "sma20": 2448.5,
+          "sma50": 2366.6
+        },
+        {
+          "date": "Aug 23",
+          "close": 2700.0,
+          "sma20": 2462.0,
+          "sma50": 2377.2
+        },
+        {
+          "date": "Aug 24",
+          "close": 2670.0,
+          "sma20": 2470.5,
+          "sma50": 2386.6
+        },
+        {
+          "date": "Aug 25",
+          "close": 2590.0,
+          "sma20": 2477.5,
+          "sma50": 2394.6
+        },
+        {
+          "date": "Aug 28",
+          "close": 2680.0,
+          "sma20": 2488.0,
+          "sma50": 2404.0
+        },
+        {
+          "date": "Aug 29",
+          "close": 2680.0,
+          "sma20": 2501.5,
+          "sma50": 2413.4
+        },
+        {
+          "date": "Aug 30",
+          "close": 2690.0,
+          "sma20": 2516.5,
+          "sma50": 2422.2
+        },
+        {
+          "date": "Aug 31",
+          "close": 2670.0,
+          "sma20": 2531.5,
+          "sma50": 2429.6
+        },
+        {
+          "date": "Sep 01",
+          "close": 2680.0,
+          "sma20": 2547.5,
+          "sma50": 2436.8
+        },
+        {
+          "date": "Sep 04",
+          "close": 2740.0,
+          "sma20": 2564.5,
+          "sma50": 2446.4
+        },
+        {
+          "date": "Sep 05",
+          "close": 2740.0,
+          "sma20": 2582.5,
+          "sma50": 2455.8
+        },
+        {
+          "date": "Sep 06",
+          "close": 2870.0,
+          "sma20": 2607.5,
+          "sma50": 2468.0
+        },
+        {
+          "date": "Sep 07",
+          "close": 2880.0,
+          "sma20": 2631.5,
+          "sma50": 2480.4
+        },
+        {
+          "date": "Sep 08",
+          "close": 2890.0,
+          "sma20": 2655.5,
+          "sma50": 2493.6
+        },
+        {
+          "date": "Sep 11",
+          "close": 2800.0,
+          "sma20": 2678.0,
+          "sma50": 2505.4
+        },
+        {
+          "date": "Sep 12",
+          "close": 2810.0,
+          "sma20": 2699.0,
+          "sma50": 2517.0
+        },
+        {
+          "date": "Sep 13",
+          "close": 2860.0,
+          "sma20": 2716.5,
+          "sma50": 2527.6
+        },
+        {
+          "date": "Sep 14",
+          "close": 2910.0,
+          "sma20": 2736.0,
+          "sma50": 2539.0
+        },
+        {
+          "date": "Sep 15",
+          "close": 2840.0,
+          "sma20": 2751.0,
+          "sma50": 2547.4
+        },
+        {
+          "date": "Sep 18",
+          "close": 2840.0,
+          "sma20": 2762.0,
+          "sma50": 2555.2
+        },
+        {
+          "date": "Sep 19",
+          "close": 2900.0,
+          "sma20": 2772.0,
+          "sma50": 2565.6
+        },
+        {
+          "date": "Sep 20",
+          "close": 2960.0,
+          "sma20": 2785.0,
+          "sma50": 2576.4
+        },
+        {
+          "date": "Sep 21",
+          "close": 2950.0,
+          "sma20": 2799.0,
+          "sma50": 2586.8
+        },
+        {
+          "date": "Sep 22",
+          "close": 2950.0,
+          "sma20": 2817.0,
+          "sma50": 2598.4
+        },
+        {
+          "date": "Sep 25",
+          "close": 2950.0,
+          "sma20": 2830.5,
+          "sma50": 2611.0
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 2840.0,
+          "prediction": 0,
+          "truth": 1,
+          "correct": false
+        },
+        {
+          "date": "2023-09-12",
+          "close": 2810.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 2740.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 2670.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 2590.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 2700.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-16",
+          "close": 2520.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 2350.0,
+          "prediction": 1,
+          "truth": 2,
+          "correct": false
+        }
+      ],
+      "news": [
+        {
+          "title": "Pundi-pundi Konglomerat di Lapak Bursa Karbon Indonesia - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Potensi Cuan Akhir Tahun dari Dividen Interim, Cek Emiten Ini - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Waspada IHSG Menuju Level Terendah, MYOR Hingga KIJA Layak Diburu Pemburu Cuan - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "IHSG Diprediksi Lanjut Menguat, Cek Saham AKRA, MDKA, PGEO & TLKM - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "IHSG Melemah Tipis ke 7.010,5 di Pagi Ini, TBIG, TLKM, BUKA Jadi Top Losers LQ45 - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": -1
+        }
+      ]
+    },
+    "TLKM": {
+      "symbol": "TLKM.JK",
+      "name": "Telkom Indonesia",
+      "sector": "Telecommunication",
+      "date": "2023-09-25",
+      "close": 3770.0,
+      "previous_close": 3860.0,
+      "sentiment": 2,
+      "rsi": 51.15,
+      "macd": 4.43,
+      "macd_signal": -10.36,
+      "target_price": 3913.63,
+      "model_date": "2023-09-25",
+      "signal": 1,
+      "consensus": "3/3",
+      "paths": [
+        1,
+        1,
+        1
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.9098,
+          "f1": 0.9034
+        },
+        "Deep Learning": {
+          "accuracy": 0.9016,
+          "f1": 0.9052
+        },
+        "Machine Learning": {
+          "accuracy": 0.9139,
+          "f1": 0.9108
+        },
+        "Ensemble Model": {
+          "accuracy": 0.9344,
+          "f1": 0.9339
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.9344,
+          "f1": 0.9339
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 4030.0,
+          "sma20": 4076.0,
+          "sma50": 4134.0
+        },
+        {
+          "date": "Jun 14",
+          "close": 4000.0,
+          "sma20": 4077.0,
+          "sma50": 4134.2
+        },
+        {
+          "date": "Jun 15",
+          "close": 4020.0,
+          "sma20": 4079.0,
+          "sma50": 4132.2
+        },
+        {
+          "date": "Jun 16",
+          "close": 3970.0,
+          "sma20": 4078.5,
+          "sma50": 4130.2
+        },
+        {
+          "date": "Jun 19",
+          "close": 3960.0,
+          "sma20": 4077.0,
+          "sma50": 4128.4
+        },
+        {
+          "date": "Jun 20",
+          "close": 3990.0,
+          "sma20": 4075.5,
+          "sma50": 4127.2
+        },
+        {
+          "date": "Jun 21",
+          "close": 3980.0,
+          "sma20": 4072.5,
+          "sma50": 4124.8
+        },
+        {
+          "date": "Jun 22",
+          "close": 3940.0,
+          "sma20": 4067.5,
+          "sma50": 4121.8
+        },
+        {
+          "date": "Jun 23",
+          "close": 3950.0,
+          "sma20": 4057.0,
+          "sma50": 4119.6
+        },
+        {
+          "date": "Jun 26",
+          "close": 3990.0,
+          "sma20": 4050.5,
+          "sma50": 4117.8
+        },
+        {
+          "date": "Jun 27",
+          "close": 4000.0,
+          "sma20": 4044.0,
+          "sma50": 4116.6
+        },
+        {
+          "date": "Jul 03",
+          "close": 4000.0,
+          "sma20": 4034.0,
+          "sma50": 4113.6
+        },
+        {
+          "date": "Jul 04",
+          "close": 3970.0,
+          "sma20": 4026.5,
+          "sma50": 4108.0
+        },
+        {
+          "date": "Jul 05",
+          "close": 3980.0,
+          "sma20": 4023.5,
+          "sma50": 4101.6
+        },
+        {
+          "date": "Jul 06",
+          "close": 3960.0,
+          "sma20": 4017.5,
+          "sma50": 4094.8
+        },
+        {
+          "date": "Jul 07",
+          "close": 3960.0,
+          "sma20": 4011.0,
+          "sma50": 4087.8
+        },
+        {
+          "date": "Jul 10",
+          "close": 3950.0,
+          "sma20": 4001.0,
+          "sma50": 4080.0
+        },
+        {
+          "date": "Jul 11",
+          "close": 3980.0,
+          "sma20": 3991.5,
+          "sma50": 4072.8
+        },
+        {
+          "date": "Jul 12",
+          "close": 3980.0,
+          "sma20": 3983.0,
+          "sma50": 4067.0
+        },
+        {
+          "date": "Jul 13",
+          "close": 3920.0,
+          "sma20": 3976.5,
+          "sma50": 4060.0
+        },
+        {
+          "date": "Jul 14",
+          "close": 3930.0,
+          "sma20": 3971.5,
+          "sma50": 4050.6
+        },
+        {
+          "date": "Jul 17",
+          "close": 3910.0,
+          "sma20": 3967.0,
+          "sma50": 4042.4
+        },
+        {
+          "date": "Jul 18",
+          "close": 3850.0,
+          "sma20": 3958.5,
+          "sma50": 4034.4
+        },
+        {
+          "date": "Jul 20",
+          "close": 3850.0,
+          "sma20": 3952.5,
+          "sma50": 4027.6
+        },
+        {
+          "date": "Jul 21",
+          "close": 3860.0,
+          "sma20": 3947.5,
+          "sma50": 4021.8
+        },
+        {
+          "date": "Jul 24",
+          "close": 3900.0,
+          "sma20": 3943.0,
+          "sma50": 4016.8
+        },
+        {
+          "date": "Jul 25",
+          "close": 3880.0,
+          "sma20": 3938.0,
+          "sma50": 4011.0
+        },
+        {
+          "date": "Jul 26",
+          "close": 3880.0,
+          "sma20": 3935.0,
+          "sma50": 4007.4
+        },
+        {
+          "date": "Jul 27",
+          "close": 3720.0,
+          "sma20": 3923.5,
+          "sma50": 4000.4
+        },
+        {
+          "date": "Jul 28",
+          "close": 3720.0,
+          "sma20": 3910.0,
+          "sma50": 3992.2
+        },
+        {
+          "date": "Jul 31",
+          "close": 3720.0,
+          "sma20": 3896.0,
+          "sma50": 3984.8
+        },
+        {
+          "date": "Aug 01",
+          "close": 3750.0,
+          "sma20": 3883.5,
+          "sma50": 3980.2
+        },
+        {
+          "date": "Aug 02",
+          "close": 3690.0,
+          "sma20": 3869.5,
+          "sma50": 3974.4
+        },
+        {
+          "date": "Aug 03",
+          "close": 3720.0,
+          "sma20": 3856.5,
+          "sma50": 3969.2
+        },
+        {
+          "date": "Aug 04",
+          "close": 3690.0,
+          "sma20": 3843.0,
+          "sma50": 3963.2
+        },
+        {
+          "date": "Aug 07",
+          "close": 3680.0,
+          "sma20": 3829.0,
+          "sma50": 3956.4
+        },
+        {
+          "date": "Aug 08",
+          "close": 3730.0,
+          "sma20": 3818.0,
+          "sma50": 3950.2
+        },
+        {
+          "date": "Aug 09",
+          "close": 3770.0,
+          "sma20": 3807.5,
+          "sma50": 3944.8
+        },
+        {
+          "date": "Aug 10",
+          "close": 3800.0,
+          "sma20": 3798.5,
+          "sma50": 3937.6
+        },
+        {
+          "date": "Aug 11",
+          "close": 3810.0,
+          "sma20": 3793.0,
+          "sma50": 3931.4
+        },
+        {
+          "date": "Aug 14",
+          "close": 3830.0,
+          "sma20": 3788.0,
+          "sma50": 3925.4
+        },
+        {
+          "date": "Aug 15",
+          "close": 3820.0,
+          "sma20": 3783.5,
+          "sma50": 3917.8
+        },
+        {
+          "date": "Aug 16",
+          "close": 3830.0,
+          "sma20": 3782.5,
+          "sma50": 3912.0
+        },
+        {
+          "date": "Aug 18",
+          "close": 3760.0,
+          "sma20": 3778.0,
+          "sma50": 3906.4
+        },
+        {
+          "date": "Aug 21",
+          "close": 3740.0,
+          "sma20": 3772.0,
+          "sma50": 3899.6
+        },
+        {
+          "date": "Aug 22",
+          "close": 3750.0,
+          "sma20": 3764.5,
+          "sma50": 3892.8
+        },
+        {
+          "date": "Aug 23",
+          "close": 3740.0,
+          "sma20": 3757.5,
+          "sma50": 3884.6
+        },
+        {
+          "date": "Aug 24",
+          "close": 3720.0,
+          "sma20": 3749.5,
+          "sma50": 3875.6
+        },
+        {
+          "date": "Aug 25",
+          "close": 3720.0,
+          "sma20": 3749.5,
+          "sma50": 3867.0
+        },
+        {
+          "date": "Aug 28",
+          "close": 3700.0,
+          "sma20": 3748.5,
+          "sma50": 3860.0
+        },
+        {
+          "date": "Aug 29",
+          "close": 3720.0,
+          "sma20": 3748.5,
+          "sma50": 3853.8
+        },
+        {
+          "date": "Aug 30",
+          "close": 3810.0,
+          "sma20": 3751.5,
+          "sma50": 3850.0
+        },
+        {
+          "date": "Aug 31",
+          "close": 3730.0,
+          "sma20": 3753.5,
+          "sma50": 3844.2
+        },
+        {
+          "date": "Sep 01",
+          "close": 3720.0,
+          "sma20": 3753.5,
+          "sma50": 3839.2
+        },
+        {
+          "date": "Sep 04",
+          "close": 3730.0,
+          "sma20": 3755.5,
+          "sma50": 3834.6
+        },
+        {
+          "date": "Sep 05",
+          "close": 3740.0,
+          "sma20": 3758.5,
+          "sma50": 3829.6
+        },
+        {
+          "date": "Sep 06",
+          "close": 3790.0,
+          "sma20": 3761.5,
+          "sma50": 3825.8
+        },
+        {
+          "date": "Sep 07",
+          "close": 3760.0,
+          "sma20": 3761.0,
+          "sma50": 3822.2
+        },
+        {
+          "date": "Sep 08",
+          "close": 3690.0,
+          "sma20": 3755.5,
+          "sma50": 3817.0
+        },
+        {
+          "date": "Sep 11",
+          "close": 3700.0,
+          "sma20": 3750.0,
+          "sma50": 3811.2
+        },
+        {
+          "date": "Sep 12",
+          "close": 3710.0,
+          "sma20": 3744.0,
+          "sma50": 3805.4
+        },
+        {
+          "date": "Sep 13",
+          "close": 3710.0,
+          "sma20": 3738.5,
+          "sma50": 3799.6
+        },
+        {
+          "date": "Sep 14",
+          "close": 3680.0,
+          "sma20": 3731.0,
+          "sma50": 3793.8
+        },
+        {
+          "date": "Sep 15",
+          "close": 3720.0,
+          "sma20": 3729.0,
+          "sma50": 3788.6
+        },
+        {
+          "date": "Sep 18",
+          "close": 3680.0,
+          "sma20": 3726.0,
+          "sma50": 3783.0
+        },
+        {
+          "date": "Sep 19",
+          "close": 3730.0,
+          "sma20": 3725.0,
+          "sma50": 3778.4
+        },
+        {
+          "date": "Sep 20",
+          "close": 3810.0,
+          "sma20": 3728.5,
+          "sma50": 3775.6
+        },
+        {
+          "date": "Sep 21",
+          "close": 3810.0,
+          "sma20": 3733.0,
+          "sma50": 3772.2
+        },
+        {
+          "date": "Sep 22",
+          "close": 3860.0,
+          "sma20": 3740.0,
+          "sma50": 3769.8
+        },
+        {
+          "date": "Sep 25",
+          "close": 3770.0,
+          "sma20": 3743.5,
+          "sma50": 3766.8
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 3720.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 3710.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 3730.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 3730.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 3720.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 3750.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-16",
+          "close": 3830.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 3810.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "Rekomendasi Saham dan Pergerakan IHSG Hari Ini, 25 September 2023 - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "10 Saham Ini Ramai-ramai Diborong Asing Kala IHSG Menguat - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Profil Tambang MUTU yang Bikin CUAN Milik Prajogo Pangestu Kepincut - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Pembagian Dividen Saham Bisa Tingkatkan Likuiditas Saham Sumber Global Energy (SGER) - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Sumber Global Energy (SGER) Bagikan Dividen Saham Senilai Rp 590,5 Triliun - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": 2
+        }
+      ]
+    },
+    "BMRI": {
+      "symbol": "BMRI.JK",
+      "name": "Bank Mandiri",
+      "sector": "Financials",
+      "date": "2023-09-25",
+      "close": 6000.0,
+      "previous_close": 6000.0,
+      "sentiment": 2,
+      "rsi": 55.98,
+      "macd": 44.69,
+      "macd_signal": 49.0,
+      "target_price": 6254.8,
+      "model_date": "2023-09-25",
+      "signal": 1,
+      "consensus": "3/3",
+      "paths": [
+        1,
+        1,
+        1
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.8443,
+          "f1": 0.8464
+        },
+        "Deep Learning": {
+          "accuracy": 0.9344,
+          "f1": 0.9353
+        },
+        "Machine Learning": {
+          "accuracy": 0.8648,
+          "f1": 0.8626
+        },
+        "Ensemble Model": {
+          "accuracy": 0.9221,
+          "f1": 0.9223
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.9221,
+          "f1": 0.9223
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 5100.0,
+          "sma20": 5084.5,
+          "sma50": 5132.3
+        },
+        {
+          "date": "Jun 14",
+          "close": 5050.0,
+          "sma20": 5087.0,
+          "sma50": 5133.3
+        },
+        {
+          "date": "Jun 15",
+          "close": 5125.0,
+          "sma20": 5090.75,
+          "sma50": 5130.8
+        },
+        {
+          "date": "Jun 16",
+          "close": 5150.0,
+          "sma20": 5098.75,
+          "sma50": 5124.8
+        },
+        {
+          "date": "Jun 19",
+          "close": 5125.0,
+          "sma20": 5105.0,
+          "sma50": 5125.3
+        },
+        {
+          "date": "Jun 20",
+          "close": 5100.0,
+          "sma20": 5106.25,
+          "sma50": 5126.05
+        },
+        {
+          "date": "Jun 21",
+          "close": 5100.0,
+          "sma20": 5100.0,
+          "sma50": 5124.55
+        },
+        {
+          "date": "Jun 22",
+          "close": 5075.0,
+          "sma20": 5097.5,
+          "sma50": 5123.8
+        },
+        {
+          "date": "Jun 23",
+          "close": 5075.0,
+          "sma20": 5097.5,
+          "sma50": 5122.05
+        },
+        {
+          "date": "Jun 26",
+          "close": 5125.0,
+          "sma20": 5095.0,
+          "sma50": 5119.3
+        },
+        {
+          "date": "Jun 27",
+          "close": 5200.0,
+          "sma20": 5098.75,
+          "sma50": 5119.3
+        },
+        {
+          "date": "Jul 03",
+          "close": 5350.0,
+          "sma20": 5108.75,
+          "sma50": 5121.8
+        },
+        {
+          "date": "Jul 04",
+          "close": 5250.0,
+          "sma20": 5113.75,
+          "sma50": 5123.3
+        },
+        {
+          "date": "Jul 05",
+          "close": 5275.0,
+          "sma20": 5125.0,
+          "sma50": 5126.8
+        },
+        {
+          "date": "Jul 06",
+          "close": 5300.0,
+          "sma20": 5136.25,
+          "sma50": 5130.8
+        },
+        {
+          "date": "Jul 07",
+          "close": 5150.0,
+          "sma20": 5141.25,
+          "sma50": 5130.8
+        },
+        {
+          "date": "Jul 10",
+          "close": 5175.0,
+          "sma20": 5148.75,
+          "sma50": 5131.8
+        },
+        {
+          "date": "Jul 11",
+          "close": 5275.0,
+          "sma20": 5161.25,
+          "sma50": 5132.8
+        },
+        {
+          "date": "Jul 12",
+          "close": 5300.0,
+          "sma20": 5170.0,
+          "sma50": 5136.3
+        },
+        {
+          "date": "Jul 13",
+          "close": 5350.0,
+          "sma20": 5182.5,
+          "sma50": 5139.8
+        },
+        {
+          "date": "Jul 14",
+          "close": 5400.0,
+          "sma20": 5197.5,
+          "sma50": 5143.8
+        },
+        {
+          "date": "Jul 17",
+          "close": 5375.0,
+          "sma20": 5213.75,
+          "sma50": 5147.3
+        },
+        {
+          "date": "Jul 18",
+          "close": 5350.0,
+          "sma20": 5225.0,
+          "sma50": 5150.8
+        },
+        {
+          "date": "Jul 20",
+          "close": 5525.0,
+          "sma20": 5243.75,
+          "sma50": 5156.3
+        },
+        {
+          "date": "Jul 21",
+          "close": 5550.0,
+          "sma20": 5265.0,
+          "sma50": 5162.8
+        },
+        {
+          "date": "Jul 24",
+          "close": 5500.0,
+          "sma20": 5285.0,
+          "sma50": 5169.3
+        },
+        {
+          "date": "Jul 25",
+          "close": 5550.0,
+          "sma20": 5307.5,
+          "sma50": 5176.8
+        },
+        {
+          "date": "Jul 26",
+          "close": 5575.0,
+          "sma20": 5332.5,
+          "sma50": 5185.8
+        },
+        {
+          "date": "Jul 27",
+          "close": 5625.0,
+          "sma20": 5360.0,
+          "sma50": 5197.3
+        },
+        {
+          "date": "Jul 28",
+          "close": 5700.0,
+          "sma20": 5388.75,
+          "sma50": 5209.8
+        },
+        {
+          "date": "Jul 31",
+          "close": 5725.0,
+          "sma20": 5415.0,
+          "sma50": 5222.3
+        },
+        {
+          "date": "Aug 01",
+          "close": 5650.0,
+          "sma20": 5430.0,
+          "sma50": 5235.3
+        },
+        {
+          "date": "Aug 02",
+          "close": 5700.0,
+          "sma20": 5452.5,
+          "sma50": 5248.3
+        },
+        {
+          "date": "Aug 03",
+          "close": 5800.0,
+          "sma20": 5478.75,
+          "sma50": 5264.5
+        },
+        {
+          "date": "Aug 04",
+          "close": 5775.0,
+          "sma20": 5502.5,
+          "sma50": 5280.0
+        },
+        {
+          "date": "Aug 07",
+          "close": 5875.0,
+          "sma20": 5538.75,
+          "sma50": 5296.0
+        },
+        {
+          "date": "Aug 08",
+          "close": 5900.0,
+          "sma20": 5575.0,
+          "sma50": 5309.5
+        },
+        {
+          "date": "Aug 09",
+          "close": 5900.0,
+          "sma20": 5606.25,
+          "sma50": 5325.0
+        },
+        {
+          "date": "Aug 10",
+          "close": 5975.0,
+          "sma20": 5640.0,
+          "sma50": 5343.0
+        },
+        {
+          "date": "Aug 11",
+          "close": 5925.0,
+          "sma20": 5668.75,
+          "sma50": 5358.0
+        },
+        {
+          "date": "Aug 14",
+          "close": 5950.0,
+          "sma20": 5696.25,
+          "sma50": 5374.5
+        },
+        {
+          "date": "Aug 15",
+          "close": 5800.0,
+          "sma20": 5717.5,
+          "sma50": 5387.5
+        },
+        {
+          "date": "Aug 16",
+          "close": 5800.0,
+          "sma20": 5740.0,
+          "sma50": 5400.5
+        },
+        {
+          "date": "Aug 18",
+          "close": 5775.0,
+          "sma20": 5752.5,
+          "sma50": 5415.0
+        },
+        {
+          "date": "Aug 21",
+          "close": 5825.0,
+          "sma20": 5766.25,
+          "sma50": 5430.0
+        },
+        {
+          "date": "Aug 22",
+          "close": 5950.0,
+          "sma20": 5788.75,
+          "sma50": 5448.0
+        },
+        {
+          "date": "Aug 23",
+          "close": 5850.0,
+          "sma20": 5803.75,
+          "sma50": 5464.5
+        },
+        {
+          "date": "Aug 24",
+          "close": 5950.0,
+          "sma20": 5822.5,
+          "sma50": 5483.0
+        },
+        {
+          "date": "Aug 25",
+          "close": 5900.0,
+          "sma20": 5836.25,
+          "sma50": 5498.5
+        },
+        {
+          "date": "Aug 28",
+          "close": 6000.0,
+          "sma20": 5851.25,
+          "sma50": 5516.5
+        },
+        {
+          "date": "Aug 29",
+          "close": 5950.0,
+          "sma20": 5862.5,
+          "sma50": 5533.5
+        },
+        {
+          "date": "Aug 30",
+          "close": 5975.0,
+          "sma20": 5878.75,
+          "sma50": 5552.0
+        },
+        {
+          "date": "Aug 31",
+          "close": 6025.0,
+          "sma20": 5895.0,
+          "sma50": 5570.0
+        },
+        {
+          "date": "Sep 01",
+          "close": 6075.0,
+          "sma20": 5908.75,
+          "sma50": 5588.5
+        },
+        {
+          "date": "Sep 04",
+          "close": 6100.0,
+          "sma20": 5925.0,
+          "sma50": 5608.0
+        },
+        {
+          "date": "Sep 05",
+          "close": 6100.0,
+          "sma20": 5936.25,
+          "sma50": 5628.0
+        },
+        {
+          "date": "Sep 06",
+          "close": 6050.0,
+          "sma20": 5943.75,
+          "sma50": 5647.0
+        },
+        {
+          "date": "Sep 07",
+          "close": 5875.0,
+          "sma20": 5942.5,
+          "sma50": 5663.0
+        },
+        {
+          "date": "Sep 08",
+          "close": 5900.0,
+          "sma20": 5938.75,
+          "sma50": 5679.5
+        },
+        {
+          "date": "Sep 11",
+          "close": 5925.0,
+          "sma20": 5938.75,
+          "sma50": 5695.5
+        },
+        {
+          "date": "Sep 12",
+          "close": 5875.0,
+          "sma20": 5935.0,
+          "sma50": 5709.0
+        },
+        {
+          "date": "Sep 13",
+          "close": 5850.0,
+          "sma20": 5937.5,
+          "sma50": 5719.0
+        },
+        {
+          "date": "Sep 14",
+          "close": 5825.0,
+          "sma20": 5938.75,
+          "sma50": 5730.5
+        },
+        {
+          "date": "Sep 15",
+          "close": 5925.0,
+          "sma20": 5946.25,
+          "sma50": 5743.5
+        },
+        {
+          "date": "Sep 18",
+          "close": 5900.0,
+          "sma20": 5950.0,
+          "sma50": 5755.5
+        },
+        {
+          "date": "Sep 19",
+          "close": 6000.0,
+          "sma20": 5952.5,
+          "sma50": 5772.5
+        },
+        {
+          "date": "Sep 20",
+          "close": 6075.0,
+          "sma20": 5963.75,
+          "sma50": 5790.5
+        },
+        {
+          "date": "Sep 21",
+          "close": 6000.0,
+          "sma20": 5966.25,
+          "sma50": 5805.0
+        },
+        {
+          "date": "Sep 22",
+          "close": 6000.0,
+          "sma20": 5971.25,
+          "sma50": 5819.0
+        },
+        {
+          "date": "Sep 25",
+          "close": 6000.0,
+          "sma20": 5971.25,
+          "sma50": 5832.0
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 5925.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 5875.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 6100.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 6025.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 5900.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 5950.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-16",
+          "close": 5800.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 5925.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "10 Saham Ini Ramai-ramai Diborong Asing Kala IHSG Menguat - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Siap-siap Bank Mandiri Mau Blokir Rekening Judi Online - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Saham Bank Ini Diam-diam Bisa Kasih Cuan dan Dividen Gede, Pegangan LKH - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Anak Usaha Indika (INDY) Raih Pinjaman US$ 50 Juta dari Bank DBS Indonesia - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-24",
+          "sentiment": 2
+        },
+        {
+          "title": "Presiden Jokowi Akan Resmikan Bursa Karbon Indonesia pada 26 September - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-24",
+          "sentiment": 2
+        }
+      ]
+    },
+    "ANTM": {
+      "symbol": "ANTM.JK",
+      "name": "Aneka Tambang",
+      "sector": "Basic Materials",
+      "date": "2023-09-25",
+      "close": 1850.0,
+      "previous_close": 1850.0,
+      "sentiment": 2,
+      "rsi": 31.43,
+      "macd": -35.62,
+      "macd_signal": -27.78,
+      "target_price": 1956.43,
+      "model_date": "2023-09-25",
+      "signal": 1,
+      "consensus": "3/3",
+      "paths": [
+        1,
+        1,
+        1
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.6189,
+          "f1": 0.612
+        },
+        "Deep Learning": {
+          "accuracy": 0.9221,
+          "f1": 0.9223
+        },
+        "Machine Learning": {
+          "accuracy": 0.832,
+          "f1": 0.8313
+        },
+        "Ensemble Model": {
+          "accuracy": 0.877,
+          "f1": 0.8773
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.8852,
+          "f1": 0.8856
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 2010.0,
+          "sma20": 1964.5,
+          "sma50": 2023.7
+        },
+        {
+          "date": "Jun 14",
+          "close": 2030.0,
+          "sma20": 1966.0,
+          "sma50": 2026.3
+        },
+        {
+          "date": "Jun 15",
+          "close": 2040.0,
+          "sma20": 1968.5,
+          "sma50": 2029.4
+        },
+        {
+          "date": "Jun 16",
+          "close": 2060.0,
+          "sma20": 1973.0,
+          "sma50": 2032.7
+        },
+        {
+          "date": "Jun 19",
+          "close": 2030.0,
+          "sma20": 1977.75,
+          "sma50": 2034.1
+        },
+        {
+          "date": "Jun 20",
+          "close": 2020.0,
+          "sma20": 1981.0,
+          "sma50": 2034.6
+        },
+        {
+          "date": "Jun 21",
+          "close": 2010.0,
+          "sma20": 1984.5,
+          "sma50": 2033.2
+        },
+        {
+          "date": "Jun 22",
+          "close": 2010.0,
+          "sma20": 1987.75,
+          "sma50": 2031.6
+        },
+        {
+          "date": "Jun 23",
+          "close": 2010.0,
+          "sma20": 1990.75,
+          "sma50": 2030.0
+        },
+        {
+          "date": "Jun 26",
+          "close": 1950.0,
+          "sma20": 1991.0,
+          "sma50": 2027.2
+        },
+        {
+          "date": "Jun 27",
+          "close": 1950.0,
+          "sma20": 1992.5,
+          "sma50": 2025.2
+        },
+        {
+          "date": "Jul 03",
+          "close": 1965.0,
+          "sma20": 1994.0,
+          "sma50": 2022.5
+        },
+        {
+          "date": "Jul 04",
+          "close": 1970.0,
+          "sma20": 1995.5,
+          "sma50": 2019.9
+        },
+        {
+          "date": "Jul 05",
+          "close": 1985.0,
+          "sma20": 2000.0,
+          "sma50": 2019.2
+        },
+        {
+          "date": "Jul 06",
+          "close": 2020.0,
+          "sma20": 2002.25,
+          "sma50": 2017.4
+        },
+        {
+          "date": "Jul 07",
+          "close": 1975.0,
+          "sma20": 2000.5,
+          "sma50": 2014.7
+        },
+        {
+          "date": "Jul 10",
+          "close": 1980.0,
+          "sma20": 1998.5,
+          "sma50": 2011.7
+        },
+        {
+          "date": "Jul 11",
+          "close": 2000.0,
+          "sma20": 1999.25,
+          "sma50": 2009.5
+        },
+        {
+          "date": "Jul 12",
+          "close": 1990.0,
+          "sma20": 2000.0,
+          "sma50": 2006.9
+        },
+        {
+          "date": "Jul 13",
+          "close": 1990.0,
+          "sma20": 1999.75,
+          "sma50": 2004.7
+        },
+        {
+          "date": "Jul 14",
+          "close": 2000.0,
+          "sma20": 1999.25,
+          "sma50": 2002.5
+        },
+        {
+          "date": "Jul 17",
+          "close": 1990.0,
+          "sma20": 1997.25,
+          "sma50": 2000.7
+        },
+        {
+          "date": "Jul 18",
+          "close": 1990.0,
+          "sma20": 1994.75,
+          "sma50": 1998.5
+        },
+        {
+          "date": "Jul 20",
+          "close": 1990.0,
+          "sma20": 1991.25,
+          "sma50": 1997.1
+        },
+        {
+          "date": "Jul 21",
+          "close": 1975.0,
+          "sma20": 1988.5,
+          "sma50": 1994.2
+        },
+        {
+          "date": "Jul 24",
+          "close": 1975.0,
+          "sma20": 1986.25,
+          "sma50": 1991.1
+        },
+        {
+          "date": "Jul 25",
+          "close": 1975.0,
+          "sma20": 1984.5,
+          "sma50": 1989.8
+        },
+        {
+          "date": "Jul 26",
+          "close": 1985.0,
+          "sma20": 1983.25,
+          "sma50": 1988.1
+        },
+        {
+          "date": "Jul 27",
+          "close": 1970.0,
+          "sma20": 1981.25,
+          "sma50": 1985.3
+        },
+        {
+          "date": "Jul 28",
+          "close": 1960.0,
+          "sma20": 1981.75,
+          "sma50": 1982.5
+        },
+        {
+          "date": "Jul 31",
+          "close": 1985.0,
+          "sma20": 1983.5,
+          "sma50": 1981.4
+        },
+        {
+          "date": "Aug 01",
+          "close": 2040.0,
+          "sma20": 1987.25,
+          "sma50": 1982.2
+        },
+        {
+          "date": "Aug 02",
+          "close": 2010.0,
+          "sma20": 1989.25,
+          "sma50": 1982.6
+        },
+        {
+          "date": "Aug 03",
+          "close": 2010.0,
+          "sma20": 1990.5,
+          "sma50": 1983.4
+        },
+        {
+          "date": "Aug 04",
+          "close": 2020.0,
+          "sma20": 1990.5,
+          "sma50": 1985.1
+        },
+        {
+          "date": "Aug 07",
+          "close": 2040.0,
+          "sma20": 1993.75,
+          "sma50": 1986.8
+        },
+        {
+          "date": "Aug 08",
+          "close": 2010.0,
+          "sma20": 1995.25,
+          "sma50": 1988.2
+        },
+        {
+          "date": "Aug 09",
+          "close": 2010.0,
+          "sma20": 1995.75,
+          "sma50": 1989.5
+        },
+        {
+          "date": "Aug 10",
+          "close": 1990.0,
+          "sma20": 1995.75,
+          "sma50": 1990.3
+        },
+        {
+          "date": "Aug 11",
+          "close": 1990.0,
+          "sma20": 1995.75,
+          "sma50": 1991.2
+        },
+        {
+          "date": "Aug 14",
+          "close": 2000.0,
+          "sma20": 1995.75,
+          "sma50": 1992.8
+        },
+        {
+          "date": "Aug 15",
+          "close": 1990.0,
+          "sma20": 1995.75,
+          "sma50": 1993.9
+        },
+        {
+          "date": "Aug 16",
+          "close": 1960.0,
+          "sma20": 1994.25,
+          "sma50": 1994.3
+        },
+        {
+          "date": "Aug 18",
+          "close": 1950.0,
+          "sma20": 1992.25,
+          "sma50": 1995.4
+        },
+        {
+          "date": "Aug 21",
+          "close": 1950.0,
+          "sma20": 1991.0,
+          "sma50": 1994.9
+        },
+        {
+          "date": "Aug 22",
+          "close": 1945.0,
+          "sma20": 1989.5,
+          "sma50": 1993.6
+        },
+        {
+          "date": "Aug 23",
+          "close": 1955.0,
+          "sma20": 1988.5,
+          "sma50": 1992.3
+        },
+        {
+          "date": "Aug 24",
+          "close": 1995.0,
+          "sma20": 1989.0,
+          "sma50": 1992.5
+        },
+        {
+          "date": "Aug 25",
+          "close": 1990.0,
+          "sma20": 1990.0,
+          "sma50": 1992.8
+        },
+        {
+          "date": "Aug 28",
+          "close": 1995.0,
+          "sma20": 1991.75,
+          "sma50": 1992.8
+        },
+        {
+          "date": "Aug 29",
+          "close": 1995.0,
+          "sma20": 1992.25,
+          "sma50": 1992.5
+        },
+        {
+          "date": "Aug 30",
+          "close": 1995.0,
+          "sma20": 1990.0,
+          "sma50": 1991.8
+        },
+        {
+          "date": "Aug 31",
+          "close": 1990.0,
+          "sma20": 1989.0,
+          "sma50": 1990.8
+        },
+        {
+          "date": "Sep 01",
+          "close": 1955.0,
+          "sma20": 1986.25,
+          "sma50": 1988.7
+        },
+        {
+          "date": "Sep 04",
+          "close": 1950.0,
+          "sma20": 1982.75,
+          "sma50": 1987.1
+        },
+        {
+          "date": "Sep 05",
+          "close": 1950.0,
+          "sma20": 1978.25,
+          "sma50": 1985.7
+        },
+        {
+          "date": "Sep 06",
+          "close": 1945.0,
+          "sma20": 1975.0,
+          "sma50": 1984.4
+        },
+        {
+          "date": "Sep 07",
+          "close": 1955.0,
+          "sma20": 1972.25,
+          "sma50": 1983.3
+        },
+        {
+          "date": "Sep 08",
+          "close": 1945.0,
+          "sma20": 1970.0,
+          "sma50": 1982.0
+        },
+        {
+          "date": "Sep 11",
+          "close": 1955.0,
+          "sma20": 1968.25,
+          "sma50": 1982.1
+        },
+        {
+          "date": "Sep 12",
+          "close": 1945.0,
+          "sma20": 1965.5,
+          "sma50": 1982.0
+        },
+        {
+          "date": "Sep 13",
+          "close": 1915.0,
+          "sma20": 1961.75,
+          "sma50": 1981.0
+        },
+        {
+          "date": "Sep 14",
+          "close": 1900.0,
+          "sma20": 1958.75,
+          "sma50": 1979.6
+        },
+        {
+          "date": "Sep 15",
+          "close": 1900.0,
+          "sma20": 1956.25,
+          "sma50": 1977.9
+        },
+        {
+          "date": "Sep 18",
+          "close": 1845.0,
+          "sma20": 1951.0,
+          "sma50": 1974.4
+        },
+        {
+          "date": "Sep 19",
+          "close": 1840.0,
+          "sma20": 1945.75,
+          "sma50": 1971.7
+        },
+        {
+          "date": "Sep 20",
+          "close": 1860.0,
+          "sma20": 1941.0,
+          "sma50": 1969.3
+        },
+        {
+          "date": "Sep 21",
+          "close": 1835.0,
+          "sma20": 1933.0,
+          "sma50": 1966.0
+        },
+        {
+          "date": "Sep 22",
+          "close": 1850.0,
+          "sma20": 1926.0,
+          "sma50": 1963.2
+        },
+        {
+          "date": "Sep 25",
+          "close": 1850.0,
+          "sma20": 1918.75,
+          "sma50": 1960.4
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 1900.0,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-09-12",
+          "close": 1945.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 1950.0,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-31",
+          "close": 1990.0,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-25",
+          "close": 1990.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 1945.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-16",
+          "close": 1960.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 1990.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "Penjelasan Antam (ANTM) Bayar 1,1 Ton Emas ke Crazy Rich Surabaya - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": -1
+        },
+        {
+          "title": "BEI Tetapkan Biaya Transaksi Bursa Karbon, Insentif per Oktober 2023 - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Ini Profil Crazy Rich Surabaya yang Dapat 1,1 Ton Emas Antam - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": -1
+        },
+        {
+          "title": "Rekomendasi Saham dan Pergerakan IHSG Hari Ini, 25 September 2023 - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Gojek Tokopedia (GOTO) Fokus Keruk Pendapatan dari Iklan - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        }
+      ]
+    },
+    "EXCL": {
+      "symbol": "EXCL.JK",
+      "name": "XL Axiata",
+      "sector": "Telecommunication",
+      "date": "2023-09-25",
+      "close": 2380.0,
+      "previous_close": 2430.0,
+      "sentiment": 2,
+      "rsi": 51.83,
+      "macd": 10.11,
+      "macd_signal": 18.14,
+      "target_price": 2015.88,
+      "model_date": "2023-09-25",
+      "signal": 0,
+      "consensus": "2/3",
+      "paths": [
+        0,
+        0,
+        1
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.9057,
+          "f1": 0.9058
+        },
+        "Deep Learning": {
+          "accuracy": 0.9098,
+          "f1": 0.9098
+        },
+        "Machine Learning": {
+          "accuracy": 0.873,
+          "f1": 0.8737
+        },
+        "Ensemble Model": {
+          "accuracy": 0.9344,
+          "f1": 0.9345
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.9344,
+          "f1": 0.9345
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 2050.0,
+          "sma20": 1987.75,
+          "sma50": 1929.6
+        },
+        {
+          "date": "Jun 14",
+          "close": 2010.0,
+          "sma20": 1990.0,
+          "sma50": 1931.8
+        },
+        {
+          "date": "Jun 15",
+          "close": 2020.0,
+          "sma20": 1994.0,
+          "sma50": 1931.2
+        },
+        {
+          "date": "Jun 16",
+          "close": 2020.0,
+          "sma20": 1999.25,
+          "sma50": 1931.6
+        },
+        {
+          "date": "Jun 19",
+          "close": 1970.0,
+          "sma20": 1999.75,
+          "sma50": 1931.2
+        },
+        {
+          "date": "Jun 20",
+          "close": 1965.0,
+          "sma20": 1997.5,
+          "sma50": 1929.5
+        },
+        {
+          "date": "Jun 21",
+          "close": 1955.0,
+          "sma20": 1994.75,
+          "sma50": 1927.8
+        },
+        {
+          "date": "Jun 22",
+          "close": 1930.0,
+          "sma20": 1994.25,
+          "sma50": 1926.0
+        },
+        {
+          "date": "Jun 23",
+          "close": 1930.0,
+          "sma20": 1993.5,
+          "sma50": 1925.0
+        },
+        {
+          "date": "Jun 26",
+          "close": 1980.0,
+          "sma20": 1994.25,
+          "sma50": 1924.4
+        },
+        {
+          "date": "Jun 27",
+          "close": 1955.0,
+          "sma20": 1995.0,
+          "sma50": 1923.8
+        },
+        {
+          "date": "Jul 03",
+          "close": 1960.0,
+          "sma20": 1995.75,
+          "sma50": 1923.3
+        },
+        {
+          "date": "Jul 04",
+          "close": 1975.0,
+          "sma20": 1996.0,
+          "sma50": 1923.6
+        },
+        {
+          "date": "Jul 05",
+          "close": 2000.0,
+          "sma20": 1996.75,
+          "sma50": 1926.1
+        },
+        {
+          "date": "Jul 06",
+          "close": 2040.0,
+          "sma20": 1999.5,
+          "sma50": 1930.5
+        },
+        {
+          "date": "Jul 07",
+          "close": 2060.0,
+          "sma20": 2004.0,
+          "sma50": 1935.0
+        },
+        {
+          "date": "Jul 10",
+          "close": 2030.0,
+          "sma20": 2003.0,
+          "sma50": 1939.6
+        },
+        {
+          "date": "Jul 11",
+          "close": 2040.0,
+          "sma20": 1999.0,
+          "sma50": 1944.3
+        },
+        {
+          "date": "Jul 12",
+          "close": 2050.0,
+          "sma20": 1999.0,
+          "sma50": 1949.6
+        },
+        {
+          "date": "Jul 13",
+          "close": 2010.0,
+          "sma20": 1997.5,
+          "sma50": 1953.9
+        },
+        {
+          "date": "Jul 14",
+          "close": 2030.0,
+          "sma20": 1996.5,
+          "sma50": 1959.2
+        },
+        {
+          "date": "Jul 17",
+          "close": 2030.0,
+          "sma20": 1997.5,
+          "sma50": 1964.6
+        },
+        {
+          "date": "Jul 18",
+          "close": 2000.0,
+          "sma20": 1996.5,
+          "sma50": 1969.6
+        },
+        {
+          "date": "Jul 20",
+          "close": 2070.0,
+          "sma20": 1999.0,
+          "sma50": 1976.4
+        },
+        {
+          "date": "Jul 21",
+          "close": 2060.0,
+          "sma20": 2003.5,
+          "sma50": 1981.2
+        },
+        {
+          "date": "Jul 24",
+          "close": 2050.0,
+          "sma20": 2007.75,
+          "sma50": 1985.6
+        },
+        {
+          "date": "Jul 25",
+          "close": 2040.0,
+          "sma20": 2012.0,
+          "sma50": 1990.1
+        },
+        {
+          "date": "Jul 26",
+          "close": 2070.0,
+          "sma20": 2019.0,
+          "sma50": 1995.3
+        },
+        {
+          "date": "Jul 27",
+          "close": 2070.0,
+          "sma20": 2026.0,
+          "sma50": 1998.6
+        },
+        {
+          "date": "Jul 28",
+          "close": 2250.0,
+          "sma20": 2039.5,
+          "sma50": 2005.6
+        },
+        {
+          "date": "Jul 31",
+          "close": 2270.0,
+          "sma20": 2055.25,
+          "sma50": 2011.9
+        },
+        {
+          "date": "Aug 01",
+          "close": 2280.0,
+          "sma20": 2071.25,
+          "sma50": 2018.2
+        },
+        {
+          "date": "Aug 02",
+          "close": 2290.0,
+          "sma20": 2087.0,
+          "sma50": 2025.2
+        },
+        {
+          "date": "Aug 03",
+          "close": 2270.0,
+          "sma20": 2100.5,
+          "sma50": 2032.3
+        },
+        {
+          "date": "Aug 04",
+          "close": 2270.0,
+          "sma20": 2112.0,
+          "sma50": 2038.5
+        },
+        {
+          "date": "Aug 07",
+          "close": 2270.0,
+          "sma20": 2122.5,
+          "sma50": 2043.7
+        },
+        {
+          "date": "Aug 08",
+          "close": 2330.0,
+          "sma20": 2137.5,
+          "sma50": 2050.1
+        },
+        {
+          "date": "Aug 09",
+          "close": 2330.0,
+          "sma20": 2152.0,
+          "sma50": 2057.9
+        },
+        {
+          "date": "Aug 10",
+          "close": 2330.0,
+          "sma20": 2166.0,
+          "sma50": 2065.6
+        },
+        {
+          "date": "Aug 11",
+          "close": 2280.0,
+          "sma20": 2179.5,
+          "sma50": 2071.9
+        },
+        {
+          "date": "Aug 14",
+          "close": 2240.0,
+          "sma20": 2190.0,
+          "sma50": 2077.9
+        },
+        {
+          "date": "Aug 15",
+          "close": 2280.0,
+          "sma20": 2202.5,
+          "sma50": 2084.6
+        },
+        {
+          "date": "Aug 16",
+          "close": 2350.0,
+          "sma20": 2220.0,
+          "sma50": 2092.2
+        },
+        {
+          "date": "Aug 18",
+          "close": 2420.0,
+          "sma20": 2237.5,
+          "sma50": 2100.9
+        },
+        {
+          "date": "Aug 21",
+          "close": 2400.0,
+          "sma20": 2254.5,
+          "sma50": 2109.2
+        },
+        {
+          "date": "Aug 22",
+          "close": 2390.0,
+          "sma20": 2271.5,
+          "sma50": 2117.6
+        },
+        {
+          "date": "Aug 23",
+          "close": 2400.0,
+          "sma20": 2289.5,
+          "sma50": 2124.6
+        },
+        {
+          "date": "Aug 24",
+          "close": 2380.0,
+          "sma20": 2305.0,
+          "sma50": 2129.8
+        },
+        {
+          "date": "Aug 25",
+          "close": 2380.0,
+          "sma20": 2320.5,
+          "sma50": 2136.4
+        },
+        {
+          "date": "Aug 28",
+          "close": 2460.0,
+          "sma20": 2331.0,
+          "sma50": 2144.8
+        },
+        {
+          "date": "Aug 29",
+          "close": 2490.0,
+          "sma20": 2342.0,
+          "sma50": 2153.6
+        },
+        {
+          "date": "Aug 30",
+          "close": 2560.0,
+          "sma20": 2356.0,
+          "sma50": 2164.6
+        },
+        {
+          "date": "Aug 31",
+          "close": 2500.0,
+          "sma20": 2366.5,
+          "sma50": 2174.2
+        },
+        {
+          "date": "Sep 01",
+          "close": 2440.0,
+          "sma20": 2375.0,
+          "sma50": 2182.6
+        },
+        {
+          "date": "Sep 04",
+          "close": 2450.0,
+          "sma20": 2384.0,
+          "sma50": 2192.2
+        },
+        {
+          "date": "Sep 05",
+          "close": 2490.0,
+          "sma20": 2395.0,
+          "sma50": 2202.7
+        },
+        {
+          "date": "Sep 06",
+          "close": 2480.0,
+          "sma20": 2402.5,
+          "sma50": 2213.2
+        },
+        {
+          "date": "Sep 07",
+          "close": 2280.0,
+          "sma20": 2400.0,
+          "sma50": 2220.2
+        },
+        {
+          "date": "Sep 08",
+          "close": 2340.0,
+          "sma20": 2400.5,
+          "sma50": 2228.4
+        },
+        {
+          "date": "Sep 11",
+          "close": 2390.0,
+          "sma20": 2406.0,
+          "sma50": 2236.6
+        },
+        {
+          "date": "Sep 12",
+          "close": 2350.0,
+          "sma20": 2411.5,
+          "sma50": 2244.5
+        },
+        {
+          "date": "Sep 13",
+          "close": 2380.0,
+          "sma20": 2416.5,
+          "sma50": 2252.9
+        },
+        {
+          "date": "Sep 14",
+          "close": 2390.0,
+          "sma20": 2418.5,
+          "sma50": 2261.2
+        },
+        {
+          "date": "Sep 15",
+          "close": 2350.0,
+          "sma20": 2415.0,
+          "sma50": 2268.2
+        },
+        {
+          "date": "Sep 18",
+          "close": 2330.0,
+          "sma20": 2411.5,
+          "sma50": 2274.0
+        },
+        {
+          "date": "Sep 19",
+          "close": 2300.0,
+          "sma20": 2407.0,
+          "sma50": 2278.8
+        },
+        {
+          "date": "Sep 20",
+          "close": 2340.0,
+          "sma20": 2404.0,
+          "sma50": 2285.0
+        },
+        {
+          "date": "Sep 21",
+          "close": 2350.0,
+          "sma20": 2402.5,
+          "sma50": 2291.2
+        },
+        {
+          "date": "Sep 22",
+          "close": 2430.0,
+          "sma20": 2405.0,
+          "sma50": 2298.8
+        },
+        {
+          "date": "Sep 25",
+          "close": 2380.0,
+          "sma20": 2401.0,
+          "sma50": 2306.2
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 2350.0,
+          "prediction": 0,
+          "truth": 1,
+          "correct": false
+        },
+        {
+          "date": "2023-09-12",
+          "close": 2350.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 2450.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 2500.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 2380.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 2390.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-16",
+          "close": 2350.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 2280.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "Rekomendasi Saham dan Pergerakan IHSG Hari Ini, 25 September 2023 - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "10 Saham Ini Ramai-ramai Diborong Asing Kala IHSG Menguat - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Lepas Multi Tambangjaya ke Petrindo (CUAN), Begini Penjelasan Indika (INDY) - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Harga Emas di Pegadaian, Siang Ini Senin 25 September 2023, Cek Daftarnya di Sini - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "IHSG Menguat 0,36% Pada Jumat (22/9), Simak Proyeksinya untuk Pekan Depan - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-23",
+          "sentiment": 2
+        }
+      ]
+    },
+    "BNGA": {
+      "symbol": "BNGA.JK",
+      "name": "Bank CIMB Niaga",
+      "sector": "Financials",
+      "date": "2023-09-25",
+      "close": 1700.0,
+      "previous_close": 1695.0,
+      "sentiment": 2,
+      "rsi": 52.2,
+      "macd": 1.18,
+      "macd_signal": 0.83,
+      "target_price": 1708.4,
+      "model_date": "2023-09-25",
+      "signal": 1,
+      "consensus": "3/3",
+      "paths": [
+        1,
+        1,
+        1
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.8648,
+          "f1": 0.8641
+        },
+        "Deep Learning": {
+          "accuracy": 0.9385,
+          "f1": 0.9383
+        },
+        "Machine Learning": {
+          "accuracy": 0.877,
+          "f1": 0.8738
+        },
+        "Ensemble Model": {
+          "accuracy": 0.9139,
+          "f1": 0.913
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.9139,
+          "f1": 0.913
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 1580.0,
+          "sma20": 1455.25,
+          "sma50": 1351.8
+        },
+        {
+          "date": "Jun 14",
+          "close": 1540.0,
+          "sma20": 1462.0,
+          "sma50": 1358.5
+        },
+        {
+          "date": "Jun 15",
+          "close": 1545.0,
+          "sma20": 1468.5,
+          "sma50": 1365.4
+        },
+        {
+          "date": "Jun 16",
+          "close": 1515.0,
+          "sma20": 1471.25,
+          "sma50": 1371.2
+        },
+        {
+          "date": "Jun 19",
+          "close": 1525.0,
+          "sma20": 1476.25,
+          "sma50": 1376.5
+        },
+        {
+          "date": "Jun 20",
+          "close": 1540.0,
+          "sma20": 1481.0,
+          "sma50": 1382.2
+        },
+        {
+          "date": "Jun 21",
+          "close": 1550.0,
+          "sma20": 1485.75,
+          "sma50": 1388.0
+        },
+        {
+          "date": "Jun 22",
+          "close": 1560.0,
+          "sma20": 1491.0,
+          "sma50": 1393.7
+        },
+        {
+          "date": "Jun 23",
+          "close": 1560.0,
+          "sma20": 1498.0,
+          "sma50": 1399.5
+        },
+        {
+          "date": "Jun 26",
+          "close": 1570.0,
+          "sma20": 1506.0,
+          "sma50": 1404.9
+        },
+        {
+          "date": "Jun 27",
+          "close": 1585.0,
+          "sma20": 1512.75,
+          "sma50": 1410.7
+        },
+        {
+          "date": "Jul 03",
+          "close": 1620.0,
+          "sma20": 1521.0,
+          "sma50": 1417.3
+        },
+        {
+          "date": "Jul 04",
+          "close": 1610.0,
+          "sma20": 1528.75,
+          "sma50": 1423.5
+        },
+        {
+          "date": "Jul 05",
+          "close": 1605.0,
+          "sma20": 1537.0,
+          "sma50": 1429.7
+        },
+        {
+          "date": "Jul 06",
+          "close": 1605.0,
+          "sma20": 1545.0,
+          "sma50": 1435.7
+        },
+        {
+          "date": "Jul 07",
+          "close": 1630.0,
+          "sma20": 1553.5,
+          "sma50": 1442.1
+        },
+        {
+          "date": "Jul 10",
+          "close": 1590.0,
+          "sma20": 1559.75,
+          "sma50": 1447.8
+        },
+        {
+          "date": "Jul 11",
+          "close": 1590.0,
+          "sma20": 1566.0,
+          "sma50": 1453.6
+        },
+        {
+          "date": "Jul 12",
+          "close": 1590.0,
+          "sma20": 1572.5,
+          "sma50": 1459.3
+        },
+        {
+          "date": "Jul 13",
+          "close": 1580.0,
+          "sma20": 1574.5,
+          "sma50": 1464.3
+        },
+        {
+          "date": "Jul 14",
+          "close": 1580.0,
+          "sma20": 1574.5,
+          "sma50": 1471.1
+        },
+        {
+          "date": "Jul 17",
+          "close": 1595.0,
+          "sma20": 1577.25,
+          "sma50": 1477.9
+        },
+        {
+          "date": "Jul 18",
+          "close": 1580.0,
+          "sma20": 1579.0,
+          "sma50": 1484.7
+        },
+        {
+          "date": "Jul 20",
+          "close": 1585.0,
+          "sma20": 1582.5,
+          "sma50": 1491.5
+        },
+        {
+          "date": "Jul 21",
+          "close": 1605.0,
+          "sma20": 1586.5,
+          "sma50": 1498.8
+        },
+        {
+          "date": "Jul 24",
+          "close": 1610.0,
+          "sma20": 1590.0,
+          "sma50": 1505.7
+        },
+        {
+          "date": "Jul 25",
+          "close": 1605.0,
+          "sma20": 1592.75,
+          "sma50": 1511.7
+        },
+        {
+          "date": "Jul 26",
+          "close": 1595.0,
+          "sma20": 1594.5,
+          "sma50": 1516.1
+        },
+        {
+          "date": "Jul 27",
+          "close": 1610.0,
+          "sma20": 1597.0,
+          "sma50": 1521.1
+        },
+        {
+          "date": "Jul 28",
+          "close": 1610.0,
+          "sma20": 1599.0,
+          "sma50": 1526.3
+        },
+        {
+          "date": "Jul 31",
+          "close": 1690.0,
+          "sma20": 1604.25,
+          "sma50": 1533.6
+        },
+        {
+          "date": "Aug 01",
+          "close": 1670.0,
+          "sma20": 1606.75,
+          "sma50": 1538.9
+        },
+        {
+          "date": "Aug 02",
+          "close": 1670.0,
+          "sma20": 1609.75,
+          "sma50": 1544.0
+        },
+        {
+          "date": "Aug 03",
+          "close": 1670.0,
+          "sma20": 1613.0,
+          "sma50": 1548.2
+        },
+        {
+          "date": "Aug 04",
+          "close": 1710.0,
+          "sma20": 1618.25,
+          "sma50": 1553.9
+        },
+        {
+          "date": "Aug 07",
+          "close": 1780.0,
+          "sma20": 1625.75,
+          "sma50": 1560.6
+        },
+        {
+          "date": "Aug 08",
+          "close": 1790.0,
+          "sma20": 1635.75,
+          "sma50": 1567.3
+        },
+        {
+          "date": "Aug 09",
+          "close": 1775.0,
+          "sma20": 1645.0,
+          "sma50": 1573.7
+        },
+        {
+          "date": "Aug 10",
+          "close": 1785.0,
+          "sma20": 1654.75,
+          "sma50": 1581.0
+        },
+        {
+          "date": "Aug 11",
+          "close": 1775.0,
+          "sma20": 1664.5,
+          "sma50": 1588.3
+        },
+        {
+          "date": "Aug 14",
+          "close": 1765.0,
+          "sma20": 1673.75,
+          "sma50": 1594.6
+        },
+        {
+          "date": "Aug 15",
+          "close": 1765.0,
+          "sma20": 1682.25,
+          "sma50": 1600.8
+        },
+        {
+          "date": "Aug 16",
+          "close": 1740.0,
+          "sma20": 1690.25,
+          "sma50": 1606.5
+        },
+        {
+          "date": "Aug 18",
+          "close": 1740.0,
+          "sma20": 1698.0,
+          "sma50": 1612.5
+        },
+        {
+          "date": "Aug 21",
+          "close": 1705.0,
+          "sma20": 1703.0,
+          "sma50": 1617.7
+        },
+        {
+          "date": "Aug 22",
+          "close": 1690.0,
+          "sma20": 1707.0,
+          "sma50": 1622.3
+        },
+        {
+          "date": "Aug 23",
+          "close": 1730.0,
+          "sma20": 1713.25,
+          "sma50": 1627.6
+        },
+        {
+          "date": "Aug 24",
+          "close": 1700.0,
+          "sma20": 1718.5,
+          "sma50": 1632.3
+        },
+        {
+          "date": "Aug 25",
+          "close": 1685.0,
+          "sma20": 1722.25,
+          "sma50": 1636.8
+        },
+        {
+          "date": "Aug 28",
+          "close": 1680.0,
+          "sma20": 1725.75,
+          "sma50": 1639.6
+        },
+        {
+          "date": "Aug 29",
+          "close": 1735.0,
+          "sma20": 1728.0,
+          "sma50": 1642.7
+        },
+        {
+          "date": "Aug 30",
+          "close": 1715.0,
+          "sma20": 1730.25,
+          "sma50": 1646.2
+        },
+        {
+          "date": "Aug 31",
+          "close": 1700.0,
+          "sma20": 1731.75,
+          "sma50": 1649.3
+        },
+        {
+          "date": "Sep 01",
+          "close": 1705.0,
+          "sma20": 1733.5,
+          "sma50": 1653.1
+        },
+        {
+          "date": "Sep 04",
+          "close": 1690.0,
+          "sma20": 1732.5,
+          "sma50": 1656.4
+        },
+        {
+          "date": "Sep 05",
+          "close": 1685.0,
+          "sma20": 1727.75,
+          "sma50": 1659.3
+        },
+        {
+          "date": "Sep 06",
+          "close": 1700.0,
+          "sma20": 1723.25,
+          "sma50": 1662.3
+        },
+        {
+          "date": "Sep 07",
+          "close": 1700.0,
+          "sma20": 1719.5,
+          "sma50": 1665.1
+        },
+        {
+          "date": "Sep 08",
+          "close": 1695.0,
+          "sma20": 1715.0,
+          "sma50": 1667.8
+        },
+        {
+          "date": "Sep 11",
+          "close": 1680.0,
+          "sma20": 1710.25,
+          "sma50": 1670.0
+        },
+        {
+          "date": "Sep 12",
+          "close": 1660.0,
+          "sma20": 1705.0,
+          "sma50": 1671.5
+        },
+        {
+          "date": "Sep 13",
+          "close": 1630.0,
+          "sma20": 1698.25,
+          "sma50": 1671.7
+        },
+        {
+          "date": "Sep 14",
+          "close": 1640.0,
+          "sma20": 1693.25,
+          "sma50": 1672.3
+        },
+        {
+          "date": "Sep 15",
+          "close": 1725.0,
+          "sma20": 1692.5,
+          "sma50": 1674.7
+        },
+        {
+          "date": "Sep 18",
+          "close": 1705.0,
+          "sma20": 1692.5,
+          "sma50": 1676.7
+        },
+        {
+          "date": "Sep 19",
+          "close": 1705.0,
+          "sma20": 1693.25,
+          "sma50": 1678.2
+        },
+        {
+          "date": "Sep 20",
+          "close": 1695.0,
+          "sma20": 1691.5,
+          "sma50": 1680.3
+        },
+        {
+          "date": "Sep 21",
+          "close": 1685.0,
+          "sma20": 1690.75,
+          "sma50": 1682.2
+        },
+        {
+          "date": "Sep 22",
+          "close": 1695.0,
+          "sma20": 1691.25,
+          "sma50": 1684.3
+        },
+        {
+          "date": "Sep 25",
+          "close": 1700.0,
+          "sma20": 1692.25,
+          "sma50": 1686.7
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 1725.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 1660.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 1690.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 1700.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 1685.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 1690.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-16",
+          "close": 1740.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 1775.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "IHSG Tinggalkan 7.000, 4 Saham Ini Biang Keroknya - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Potensi Cuan Akhir Tahun dari Dividen Interim, Cek Emiten Ini - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Judi Online Bikin Rugi Rp 27 T, Bank Ini Siap Blokir Rekening - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Saham Bank Ini Diam-diam Bisa Kasih Cuan dan Dividen Gede, Pegangan LKH - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Pengendali Habco Trans Maritima Borong Saham HATM Rp 12,73 M - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-22",
+          "sentiment": 2
+        }
+      ]
+    },
+    "INCO": {
+      "symbol": "INCO.JK",
+      "name": "Vale Indonesia",
+      "sector": "Basic Materials",
+      "date": "2023-09-25",
+      "close": 5586.88,
+      "previous_close": 5611.49,
+      "sentiment": 2,
+      "rsi": 28.12,
+      "macd": -130.92,
+      "macd_signal": -127.09,
+      "target_price": 4306.78,
+      "model_date": "2023-09-25",
+      "signal": 0,
+      "consensus": "3/3",
+      "paths": [
+        0,
+        0,
+        0
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.7582,
+          "f1": 0.7572
+        },
+        "Deep Learning": {
+          "accuracy": 0.9139,
+          "f1": 0.9138
+        },
+        "Machine Learning": {
+          "accuracy": 0.8197,
+          "f1": 0.8202
+        },
+        "Ensemble Model": {
+          "accuracy": 0.8852,
+          "f1": 0.8847
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.8852,
+          "f1": 0.8847
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 6349.84,
+          "sma20": 6401.53,
+          "sma50": 6497.02
+        },
+        {
+          "date": "Jun 14",
+          "close": 6423.68,
+          "sma20": 6392.92,
+          "sma50": 6499.98
+        },
+        {
+          "date": "Jun 15",
+          "close": 6497.52,
+          "sma20": 6387.99,
+          "sma50": 6504.9
+        },
+        {
+          "date": "Jun 16",
+          "close": 6497.52,
+          "sma20": 6394.15,
+          "sma50": 6508.34
+        },
+        {
+          "date": "Jun 19",
+          "close": 6399.07,
+          "sma20": 6394.15,
+          "sma50": 6509.82
+        },
+        {
+          "date": "Jun 20",
+          "close": 6374.46,
+          "sma20": 6397.84,
+          "sma50": 6508.84
+        },
+        {
+          "date": "Jun 21",
+          "close": 6325.23,
+          "sma20": 6402.76,
+          "sma50": 6505.39
+        },
+        {
+          "date": "Jun 22",
+          "close": 6251.4,
+          "sma20": 6397.84,
+          "sma50": 6499.98
+        },
+        {
+          "date": "Jun 23",
+          "close": 6202.17,
+          "sma20": 6381.84,
+          "sma50": 6493.09
+        },
+        {
+          "date": "Jun 26",
+          "close": 6202.17,
+          "sma20": 6369.53,
+          "sma50": 6483.73
+        },
+        {
+          "date": "Jun 27",
+          "close": 6202.17,
+          "sma20": 6356.0,
+          "sma50": 6474.87
+        },
+        {
+          "date": "Jul 03",
+          "close": 6177.56,
+          "sma20": 6347.38,
+          "sma50": 6467.49
+        },
+        {
+          "date": "Jul 04",
+          "close": 6152.95,
+          "sma20": 6333.85,
+          "sma50": 6464.54
+        },
+        {
+          "date": "Jul 05",
+          "close": 6226.79,
+          "sma20": 6335.08,
+          "sma50": 6463.06
+        },
+        {
+          "date": "Jul 06",
+          "close": 6251.4,
+          "sma20": 6322.77,
+          "sma50": 6459.61
+        },
+        {
+          "date": "Jul 07",
+          "close": 6226.79,
+          "sma20": 6309.23,
+          "sma50": 6457.15
+        },
+        {
+          "date": "Jul 10",
+          "close": 6202.17,
+          "sma20": 6294.47,
+          "sma50": 6455.68
+        },
+        {
+          "date": "Jul 11",
+          "close": 6349.84,
+          "sma20": 6293.24,
+          "sma50": 6453.21
+        },
+        {
+          "date": "Jul 12",
+          "close": 6300.62,
+          "sma20": 6295.7,
+          "sma50": 6452.23
+        },
+        {
+          "date": "Jul 13",
+          "close": 6374.46,
+          "sma20": 6299.39,
+          "sma50": 6449.77
+        },
+        {
+          "date": "Jul 14",
+          "close": 6276.01,
+          "sma20": 6295.7,
+          "sma50": 6445.34
+        },
+        {
+          "date": "Jul 17",
+          "close": 6300.62,
+          "sma20": 6289.55,
+          "sma50": 6441.4
+        },
+        {
+          "date": "Jul 18",
+          "close": 6325.23,
+          "sma20": 6280.93,
+          "sma50": 6430.57
+        },
+        {
+          "date": "Jul 20",
+          "close": 6448.29,
+          "sma20": 6278.47,
+          "sma50": 6422.2
+        },
+        {
+          "date": "Jul 21",
+          "close": 6497.52,
+          "sma20": 6283.39,
+          "sma50": 6416.3
+        },
+        {
+          "date": "Jul 24",
+          "close": 6472.9,
+          "sma20": 6288.31,
+          "sma50": 6407.44
+        },
+        {
+          "date": "Jul 25",
+          "close": 6546.74,
+          "sma20": 6299.39,
+          "sma50": 6400.54
+        },
+        {
+          "date": "Jul 26",
+          "close": 6595.96,
+          "sma20": 6316.62,
+          "sma50": 6395.13
+        },
+        {
+          "date": "Jul 27",
+          "close": 6546.74,
+          "sma20": 6333.85,
+          "sma50": 6386.76
+        },
+        {
+          "date": "Jul 28",
+          "close": 6719.02,
+          "sma20": 6359.69,
+          "sma50": 6383.81
+        },
+        {
+          "date": "Jul 31",
+          "close": 6768.24,
+          "sma20": 6387.99,
+          "sma50": 6383.32
+        },
+        {
+          "date": "Aug 01",
+          "close": 6792.86,
+          "sma20": 6418.76,
+          "sma50": 6387.25
+        },
+        {
+          "date": "Aug 02",
+          "close": 6768.24,
+          "sma20": 6449.52,
+          "sma50": 6390.7
+        },
+        {
+          "date": "Aug 03",
+          "close": 6669.8,
+          "sma20": 6471.67,
+          "sma50": 6396.61
+        },
+        {
+          "date": "Aug 04",
+          "close": 6669.8,
+          "sma20": 6492.59,
+          "sma50": 6402.02
+        },
+        {
+          "date": "Aug 07",
+          "close": 6571.35,
+          "sma20": 6509.82,
+          "sma50": 6407.44
+        },
+        {
+          "date": "Aug 08",
+          "close": 6423.68,
+          "sma20": 6520.9,
+          "sma50": 6411.37
+        },
+        {
+          "date": "Aug 09",
+          "close": 6349.84,
+          "sma20": 6520.9,
+          "sma50": 6411.37
+        },
+        {
+          "date": "Aug 10",
+          "close": 6276.01,
+          "sma20": 6519.67,
+          "sma50": 6406.45
+        },
+        {
+          "date": "Aug 11",
+          "close": 6226.79,
+          "sma20": 6512.28,
+          "sma50": 6402.02
+        },
+        {
+          "date": "Aug 14",
+          "close": 6300.62,
+          "sma20": 6513.51,
+          "sma50": 6398.58
+        },
+        {
+          "date": "Aug 15",
+          "close": 6276.01,
+          "sma20": 6512.28,
+          "sma50": 6397.1
+        },
+        {
+          "date": "Aug 16",
+          "close": 6054.5,
+          "sma20": 6498.75,
+          "sma50": 6389.72
+        },
+        {
+          "date": "Aug 18",
+          "close": 5980.67,
+          "sma20": 6475.36,
+          "sma50": 6385.29
+        },
+        {
+          "date": "Aug 21",
+          "close": 5931.44,
+          "sma20": 6447.06,
+          "sma50": 6373.96
+        },
+        {
+          "date": "Aug 22",
+          "close": 5956.06,
+          "sma20": 6421.22,
+          "sma50": 6363.13
+        },
+        {
+          "date": "Aug 23",
+          "close": 5882.22,
+          "sma20": 6387.99,
+          "sma50": 6350.83
+        },
+        {
+          "date": "Aug 24",
+          "close": 5882.22,
+          "sma20": 6352.31,
+          "sma50": 6340.98
+        },
+        {
+          "date": "Aug 25",
+          "close": 5857.61,
+          "sma20": 6317.85,
+          "sma50": 6333.11
+        },
+        {
+          "date": "Aug 28",
+          "close": 5882.22,
+          "sma20": 6276.01,
+          "sma50": 6324.74
+        },
+        {
+          "date": "Aug 29",
+          "close": 5906.83,
+          "sma20": 6232.94,
+          "sma50": 6315.88
+        },
+        {
+          "date": "Aug 30",
+          "close": 5857.61,
+          "sma20": 6186.18,
+          "sma50": 6304.56
+        },
+        {
+          "date": "Aug 31",
+          "close": 5808.38,
+          "sma20": 6138.18,
+          "sma50": 6290.78
+        },
+        {
+          "date": "Sep 01",
+          "close": 5833.0,
+          "sma20": 6096.34,
+          "sma50": 6277.49
+        },
+        {
+          "date": "Sep 04",
+          "close": 5882.22,
+          "sma20": 6056.96,
+          "sma50": 6267.15
+        },
+        {
+          "date": "Sep 05",
+          "close": 5906.83,
+          "sma20": 6023.74,
+          "sma50": 6257.8
+        },
+        {
+          "date": "Sep 06",
+          "close": 5906.83,
+          "sma20": 5997.9,
+          "sma50": 6249.43
+        },
+        {
+          "date": "Sep 07",
+          "close": 5906.83,
+          "sma20": 5975.75,
+          "sma50": 6242.54
+        },
+        {
+          "date": "Sep 08",
+          "close": 5783.77,
+          "sma20": 5951.13,
+          "sma50": 6234.17
+        },
+        {
+          "date": "Sep 11",
+          "close": 5783.77,
+          "sma20": 5928.98,
+          "sma50": 6225.8
+        },
+        {
+          "date": "Sep 12",
+          "close": 5783.77,
+          "sma20": 5903.14,
+          "sma50": 6217.43
+        },
+        {
+          "date": "Sep 13",
+          "close": 5709.94,
+          "sma20": 5874.84,
+          "sma50": 6208.08
+        },
+        {
+          "date": "Sep 14",
+          "close": 5759.16,
+          "sma20": 5860.07,
+          "sma50": 6200.2
+        },
+        {
+          "date": "Sep 15",
+          "close": 5808.38,
+          "sma20": 5851.46,
+          "sma50": 6191.84
+        },
+        {
+          "date": "Sep 18",
+          "close": 5808.38,
+          "sma20": 5845.3,
+          "sma50": 6182.98
+        },
+        {
+          "date": "Sep 19",
+          "close": 5660.71,
+          "sma20": 5830.54,
+          "sma50": 6171.65
+        },
+        {
+          "date": "Sep 20",
+          "close": 5636.1,
+          "sma20": 5818.23,
+          "sma50": 6160.33
+        },
+        {
+          "date": "Sep 21",
+          "close": 5586.88,
+          "sma20": 5803.46,
+          "sma50": 6145.07
+        },
+        {
+          "date": "Sep 22",
+          "close": 5611.49,
+          "sma20": 5791.16,
+          "sma50": 6131.29
+        },
+        {
+          "date": "Sep 25",
+          "close": 5586.88,
+          "sma20": 5776.39,
+          "sma50": 6115.54
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 5808.38,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 5783.77,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 5882.22,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 5808.38,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-25",
+          "close": 5857.61,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-22",
+          "close": 5956.06,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-16",
+          "close": 6054.5,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 6226.79,
+          "prediction": 0,
+          "truth": 1,
+          "correct": false
+        }
+      ],
+      "news": [
+        {
+          "title": "Gandeng GEM, Merdeka Battery (MBMA) Bangun Pabrik HPAL Rp 9,2 Triliun - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Emiten Nikel Kian Legit Didukung Kebijakan Pemerintah - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Sumber Global Energy (SGER) Akan Bagikan Dividen Saham, Segini Usulannya - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Grup ABMM Favorit Lo Kheng Hong Kepincut Nikel, Jadi Mitra INCO - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-24",
+          "sentiment": 2
+        },
+        {
+          "title": "Soal Bayar Gugatan Rp 1,2 Triliun, Antam (ANTM) Punya Kas Segini - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-24",
+          "sentiment": 2
+        }
+      ]
+    },
+    "INKP": {
+      "symbol": "INKP.JK",
+      "name": "Indah Kiat Pulp & Paper",
+      "sector": "Basic Materials",
+      "date": "2023-09-25",
+      "close": 11550.0,
+      "previous_close": 11500.0,
+      "sentiment": 2,
+      "rsi": 75.76,
+      "macd": 526.24,
+      "macd_signal": 379.44,
+      "target_price": 8555.38,
+      "model_date": "2023-09-25",
+      "signal": 0,
+      "consensus": "3/3",
+      "paths": [
+        0,
+        0,
+        0
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.9016,
+          "f1": 0.9022
+        },
+        "Deep Learning": {
+          "accuracy": 0.8975,
+          "f1": 0.8971
+        },
+        "Machine Learning": {
+          "accuracy": 0.877,
+          "f1": 0.8779
+        },
+        "Ensemble Model": {
+          "accuracy": 0.9057,
+          "f1": 0.9057
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.9057,
+          "f1": 0.9057
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 7325.0,
+          "sma20": 7266.25,
+          "sma50": 7372.0
+        },
+        {
+          "date": "Jun 14",
+          "close": 7775.0,
+          "sma20": 7292.5,
+          "sma50": 7385.0
+        },
+        {
+          "date": "Jun 15",
+          "close": 7850.0,
+          "sma20": 7322.5,
+          "sma50": 7394.0
+        },
+        {
+          "date": "Jun 16",
+          "close": 7950.0,
+          "sma20": 7352.5,
+          "sma50": 7406.0
+        },
+        {
+          "date": "Jun 19",
+          "close": 8175.0,
+          "sma20": 7398.75,
+          "sma50": 7421.5
+        },
+        {
+          "date": "Jun 20",
+          "close": 8000.0,
+          "sma20": 7437.5,
+          "sma50": 7429.5
+        },
+        {
+          "date": "Jun 21",
+          "close": 8000.0,
+          "sma20": 7465.0,
+          "sma50": 7437.0
+        },
+        {
+          "date": "Jun 22",
+          "close": 7925.0,
+          "sma20": 7485.0,
+          "sma50": 7442.5
+        },
+        {
+          "date": "Jun 23",
+          "close": 8275.0,
+          "sma20": 7527.5,
+          "sma50": 7458.0
+        },
+        {
+          "date": "Jun 26",
+          "close": 8500.0,
+          "sma20": 7590.0,
+          "sma50": 7478.5
+        },
+        {
+          "date": "Jun 27",
+          "close": 8500.0,
+          "sma20": 7651.25,
+          "sma50": 7499.5
+        },
+        {
+          "date": "Jul 03",
+          "close": 8400.0,
+          "sma20": 7705.0,
+          "sma50": 7522.0
+        },
+        {
+          "date": "Jul 04",
+          "close": 8475.0,
+          "sma20": 7765.0,
+          "sma50": 7546.0
+        },
+        {
+          "date": "Jul 05",
+          "close": 8725.0,
+          "sma20": 7856.25,
+          "sma50": 7572.0
+        },
+        {
+          "date": "Jul 06",
+          "close": 8775.0,
+          "sma20": 7943.75,
+          "sma50": 7598.0
+        },
+        {
+          "date": "Jul 07",
+          "close": 8850.0,
+          "sma20": 8036.25,
+          "sma50": 7622.5
+        },
+        {
+          "date": "Jul 10",
+          "close": 8975.0,
+          "sma20": 8130.0,
+          "sma50": 7652.0
+        },
+        {
+          "date": "Jul 11",
+          "close": 9475.0,
+          "sma20": 8237.5,
+          "sma50": 7692.0
+        },
+        {
+          "date": "Jul 12",
+          "close": 9400.0,
+          "sma20": 8337.5,
+          "sma50": 7729.5
+        },
+        {
+          "date": "Jul 13",
+          "close": 9150.0,
+          "sma20": 8425.0,
+          "sma50": 7762.5
+        },
+        {
+          "date": "Jul 14",
+          "close": 8950.0,
+          "sma20": 8506.25,
+          "sma50": 7783.0
+        },
+        {
+          "date": "Jul 17",
+          "close": 8800.0,
+          "sma20": 8557.5,
+          "sma50": 7801.0
+        },
+        {
+          "date": "Jul 18",
+          "close": 8725.0,
+          "sma20": 8601.25,
+          "sma50": 7820.0
+        },
+        {
+          "date": "Jul 20",
+          "close": 8925.0,
+          "sma20": 8650.0,
+          "sma50": 7845.5
+        },
+        {
+          "date": "Jul 21",
+          "close": 9000.0,
+          "sma20": 8691.25,
+          "sma50": 7882.5
+        },
+        {
+          "date": "Jul 24",
+          "close": 8950.0,
+          "sma20": 8738.75,
+          "sma50": 7918.0
+        },
+        {
+          "date": "Jul 25",
+          "close": 8950.0,
+          "sma20": 8786.25,
+          "sma50": 7955.0
+        },
+        {
+          "date": "Jul 26",
+          "close": 8850.0,
+          "sma20": 8832.5,
+          "sma50": 7989.5
+        },
+        {
+          "date": "Jul 27",
+          "close": 8925.0,
+          "sma20": 8865.0,
+          "sma50": 8023.0
+        },
+        {
+          "date": "Jul 28",
+          "close": 8875.0,
+          "sma20": 8883.75,
+          "sma50": 8053.0
+        },
+        {
+          "date": "Jul 31",
+          "close": 9150.0,
+          "sma20": 8916.25,
+          "sma50": 8092.0
+        },
+        {
+          "date": "Aug 01",
+          "close": 9300.0,
+          "sma20": 8961.25,
+          "sma50": 8133.0
+        },
+        {
+          "date": "Aug 02",
+          "close": 9075.0,
+          "sma20": 8991.25,
+          "sma50": 8169.5
+        },
+        {
+          "date": "Aug 03",
+          "close": 9400.0,
+          "sma20": 9025.0,
+          "sma50": 8210.5
+        },
+        {
+          "date": "Aug 04",
+          "close": 9275.0,
+          "sma20": 9050.0,
+          "sma50": 8251.0
+        },
+        {
+          "date": "Aug 07",
+          "close": 9625.0,
+          "sma20": 9088.75,
+          "sma50": 8299.0
+        },
+        {
+          "date": "Aug 08",
+          "close": 9550.0,
+          "sma20": 9117.5,
+          "sma50": 8341.0
+        },
+        {
+          "date": "Aug 09",
+          "close": 9750.0,
+          "sma20": 9131.25,
+          "sma50": 8385.5
+        },
+        {
+          "date": "Aug 10",
+          "close": 9800.0,
+          "sma20": 9151.25,
+          "sma50": 8433.0
+        },
+        {
+          "date": "Aug 11",
+          "close": 9700.0,
+          "sma20": 9178.75,
+          "sma50": 8482.0
+        },
+        {
+          "date": "Aug 14",
+          "close": 9950.0,
+          "sma20": 9228.75,
+          "sma50": 8535.5
+        },
+        {
+          "date": "Aug 15",
+          "close": 10075.0,
+          "sma20": 9292.5,
+          "sma50": 8590.5
+        },
+        {
+          "date": "Aug 16",
+          "close": 9750.0,
+          "sma20": 9343.75,
+          "sma50": 8640.0
+        },
+        {
+          "date": "Aug 18",
+          "close": 9375.0,
+          "sma20": 9366.25,
+          "sma50": 8689.5
+        },
+        {
+          "date": "Aug 21",
+          "close": 9075.0,
+          "sma20": 9370.0,
+          "sma50": 8730.5
+        },
+        {
+          "date": "Aug 22",
+          "close": 9450.0,
+          "sma20": 9395.0,
+          "sma50": 8779.5
+        },
+        {
+          "date": "Aug 23",
+          "close": 9325.0,
+          "sma20": 9413.75,
+          "sma50": 8824.0
+        },
+        {
+          "date": "Aug 24",
+          "close": 9400.0,
+          "sma20": 9441.25,
+          "sma50": 8865.5
+        },
+        {
+          "date": "Aug 25",
+          "close": 9300.0,
+          "sma20": 9460.0,
+          "sma50": 8903.5
+        },
+        {
+          "date": "Aug 28",
+          "close": 9475.0,
+          "sma20": 9490.0,
+          "sma50": 8945.0
+        },
+        {
+          "date": "Aug 29",
+          "close": 9500.0,
+          "sma20": 9507.5,
+          "sma50": 8988.5
+        },
+        {
+          "date": "Aug 30",
+          "close": 9350.0,
+          "sma20": 9510.0,
+          "sma50": 9020.0
+        },
+        {
+          "date": "Aug 31",
+          "close": 9100.0,
+          "sma20": 9511.25,
+          "sma50": 9045.0
+        },
+        {
+          "date": "Sep 01",
+          "close": 9175.0,
+          "sma20": 9500.0,
+          "sma50": 9069.5
+        },
+        {
+          "date": "Sep 04",
+          "close": 9250.0,
+          "sma20": 9498.75,
+          "sma50": 9091.0
+        },
+        {
+          "date": "Sep 05",
+          "close": 9250.0,
+          "sma20": 9480.0,
+          "sma50": 9116.0
+        },
+        {
+          "date": "Sep 06",
+          "close": 9175.0,
+          "sma20": 9461.25,
+          "sma50": 9139.5
+        },
+        {
+          "date": "Sep 07",
+          "close": 9475.0,
+          "sma20": 9447.5,
+          "sma50": 9170.5
+        },
+        {
+          "date": "Sep 08",
+          "close": 9450.0,
+          "sma20": 9430.0,
+          "sma50": 9194.0
+        },
+        {
+          "date": "Sep 11",
+          "close": 10200.0,
+          "sma20": 9455.0,
+          "sma50": 9228.0
+        },
+        {
+          "date": "Sep 12",
+          "close": 10200.0,
+          "sma20": 9467.5,
+          "sma50": 9262.0
+        },
+        {
+          "date": "Sep 13",
+          "close": 10575.0,
+          "sma20": 9492.5,
+          "sma50": 9305.5
+        },
+        {
+          "date": "Sep 14",
+          "close": 10500.0,
+          "sma20": 9530.0,
+          "sma50": 9346.0
+        },
+        {
+          "date": "Sep 15",
+          "close": 10575.0,
+          "sma20": 9590.0,
+          "sma50": 9383.0
+        },
+        {
+          "date": "Sep 18",
+          "close": 10500.0,
+          "sma20": 9661.25,
+          "sma50": 9417.5
+        },
+        {
+          "date": "Sep 19",
+          "close": 11150.0,
+          "sma20": 9746.25,
+          "sma50": 9463.5
+        },
+        {
+          "date": "Sep 20",
+          "close": 10925.0,
+          "sma20": 9826.25,
+          "sma50": 9502.5
+        },
+        {
+          "date": "Sep 21",
+          "close": 10925.0,
+          "sma20": 9902.5,
+          "sma50": 9531.5
+        },
+        {
+          "date": "Sep 22",
+          "close": 11500.0,
+          "sma20": 10012.5,
+          "sma50": 9573.5
+        },
+        {
+          "date": "Sep 25",
+          "close": 11550.0,
+          "sma20": 10116.25,
+          "sma50": 9621.5
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 10575.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 10200.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 9250.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 9100.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 9300.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 9450.0,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-16",
+          "close": 9750.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 9700.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "Danai Pabrik Rp 57 Triliun, Indah Kiat Grup Sinar Mas (INKP) Pakai Ini - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Jelang Bursa Karbon Besok, Saatnya Berburu Saham Ini - CNBC Indonesia",
+          "publisher": "CNBC Indonesia",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Bali Towerindo (BALI) akan Terbitkan Sukuk Rp 452 Miliar, Ini Peruntukannya - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-23",
+          "sentiment": 2
+        },
+        {
+          "title": "Dirut Kiwoom Sekuritas Chang-kun Shin Mengawali Investasi Gara-Gara Biaya Hidup Mahal - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-23",
+          "sentiment": 2
+        },
+        {
+          "title": "IHSG Menguat 0,36% Pada Jumat (22/9), Simak Proyeksinya untuk Pekan Depan - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-23",
+          "sentiment": 2
+        }
+      ]
+    },
+    "MEDC": {
+      "symbol": "MEDC.JK",
+      "name": "Medco Energi Internasional",
+      "sector": "Energy",
+      "date": "2023-09-25",
+      "close": 1640.0,
+      "previous_close": 1600.0,
+      "sentiment": 2,
+      "rsi": 69.72,
+      "macd": 135.14,
+      "macd_signal": 125.81,
+      "target_price": 1105.32,
+      "model_date": "2023-09-25",
+      "signal": 0,
+      "consensus": "3/3",
+      "paths": [
+        0,
+        0,
+        0
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.7008,
+          "f1": 0.6918
+        },
+        "Deep Learning": {
+          "accuracy": 0.9057,
+          "f1": 0.9054
+        },
+        "Machine Learning": {
+          "accuracy": 0.7869,
+          "f1": 0.7858
+        },
+        "Ensemble Model": {
+          "accuracy": 0.8893,
+          "f1": 0.8889
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.8852,
+          "f1": 0.8835
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 880.0,
+          "sma20": 901.75,
+          "sma50": 952.0
+        },
+        {
+          "date": "Jun 14",
+          "close": 905.0,
+          "sma20": 900.5,
+          "sma50": 952.9
+        },
+        {
+          "date": "Jun 15",
+          "close": 900.0,
+          "sma20": 900.25,
+          "sma50": 953.4
+        },
+        {
+          "date": "Jun 16",
+          "close": 915.0,
+          "sma20": 900.5,
+          "sma50": 953.5
+        },
+        {
+          "date": "Jun 19",
+          "close": 905.0,
+          "sma20": 900.75,
+          "sma50": 953.3
+        },
+        {
+          "date": "Jun 20",
+          "close": 905.0,
+          "sma20": 902.25,
+          "sma50": 952.7
+        },
+        {
+          "date": "Jun 21",
+          "close": 930.0,
+          "sma20": 904.0,
+          "sma50": 951.9
+        },
+        {
+          "date": "Jun 22",
+          "close": 920.0,
+          "sma20": 908.0,
+          "sma50": 950.7
+        },
+        {
+          "date": "Jun 23",
+          "close": 905.0,
+          "sma20": 908.75,
+          "sma50": 948.6
+        },
+        {
+          "date": "Jun 26",
+          "close": 900.0,
+          "sma20": 907.25,
+          "sma50": 945.2
+        },
+        {
+          "date": "Jun 27",
+          "close": 890.0,
+          "sma20": 906.75,
+          "sma50": 941.0
+        },
+        {
+          "date": "Jul 03",
+          "close": 895.0,
+          "sma20": 906.5,
+          "sma50": 937.2
+        },
+        {
+          "date": "Jul 04",
+          "close": 900.0,
+          "sma20": 905.25,
+          "sma50": 934.2
+        },
+        {
+          "date": "Jul 05",
+          "close": 930.0,
+          "sma20": 906.5,
+          "sma50": 931.8
+        },
+        {
+          "date": "Jul 06",
+          "close": 955.0,
+          "sma20": 908.25,
+          "sma50": 930.2
+        },
+        {
+          "date": "Jul 07",
+          "close": 910.0,
+          "sma20": 908.5,
+          "sma50": 927.9
+        },
+        {
+          "date": "Jul 10",
+          "close": 915.0,
+          "sma20": 909.0,
+          "sma50": 925.6
+        },
+        {
+          "date": "Jul 11",
+          "close": 895.0,
+          "sma20": 908.0,
+          "sma50": 921.7
+        },
+        {
+          "date": "Jul 12",
+          "close": 895.0,
+          "sma20": 907.5,
+          "sma50": 918.8
+        },
+        {
+          "date": "Jul 13",
+          "close": 890.0,
+          "sma20": 907.0,
+          "sma50": 915.5
+        },
+        {
+          "date": "Jul 14",
+          "close": 900.0,
+          "sma20": 908.0,
+          "sma50": 913.0
+        },
+        {
+          "date": "Jul 17",
+          "close": 905.0,
+          "sma20": 908.0,
+          "sma50": 911.1
+        },
+        {
+          "date": "Jul 18",
+          "close": 910.0,
+          "sma20": 908.5,
+          "sma50": 909.1
+        },
+        {
+          "date": "Jul 20",
+          "close": 935.0,
+          "sma20": 909.5,
+          "sma50": 908.6
+        },
+        {
+          "date": "Jul 21",
+          "close": 955.0,
+          "sma20": 912.0,
+          "sma50": 908.9
+        },
+        {
+          "date": "Jul 24",
+          "close": 1000.0,
+          "sma20": 916.75,
+          "sma50": 910.8
+        },
+        {
+          "date": "Jul 25",
+          "close": 1080.0,
+          "sma20": 924.25,
+          "sma50": 914.4
+        },
+        {
+          "date": "Jul 26",
+          "close": 1100.0,
+          "sma20": 933.25,
+          "sma50": 917.7
+        },
+        {
+          "date": "Jul 27",
+          "close": 1090.0,
+          "sma20": 942.5,
+          "sma50": 920.9
+        },
+        {
+          "date": "Jul 28",
+          "close": 1130.0,
+          "sma20": 954.0,
+          "sma50": 924.7
+        },
+        {
+          "date": "Jul 31",
+          "close": 1130.0,
+          "sma20": 966.0,
+          "sma50": 928.6
+        },
+        {
+          "date": "Aug 01",
+          "close": 1055.0,
+          "sma20": 974.0,
+          "sma50": 931.1
+        },
+        {
+          "date": "Aug 02",
+          "close": 1095.0,
+          "sma20": 983.75,
+          "sma50": 934.9
+        },
+        {
+          "date": "Aug 03",
+          "close": 1070.0,
+          "sma20": 990.75,
+          "sma50": 938.1
+        },
+        {
+          "date": "Aug 04",
+          "close": 1055.0,
+          "sma20": 995.75,
+          "sma50": 941.2
+        },
+        {
+          "date": "Aug 07",
+          "close": 1070.0,
+          "sma20": 1003.75,
+          "sma50": 945.1
+        },
+        {
+          "date": "Aug 08",
+          "close": 1045.0,
+          "sma20": 1010.25,
+          "sma50": 948.1
+        },
+        {
+          "date": "Aug 09",
+          "close": 1050.0,
+          "sma20": 1018.0,
+          "sma50": 952.3
+        },
+        {
+          "date": "Aug 10",
+          "close": 1070.0,
+          "sma20": 1026.75,
+          "sma50": 955.9
+        },
+        {
+          "date": "Aug 11",
+          "close": 1055.0,
+          "sma20": 1035.0,
+          "sma50": 958.4
+        },
+        {
+          "date": "Aug 14",
+          "close": 1030.0,
+          "sma20": 1041.5,
+          "sma50": 961.0
+        },
+        {
+          "date": "Aug 15",
+          "close": 1080.0,
+          "sma20": 1050.25,
+          "sma50": 964.6
+        },
+        {
+          "date": "Aug 16",
+          "close": 1080.0,
+          "sma20": 1058.75,
+          "sma50": 967.7
+        },
+        {
+          "date": "Aug 18",
+          "close": 1070.0,
+          "sma20": 1065.5,
+          "sma50": 971.0
+        },
+        {
+          "date": "Aug 21",
+          "close": 1090.0,
+          "sma20": 1072.25,
+          "sma50": 974.4
+        },
+        {
+          "date": "Aug 22",
+          "close": 1100.0,
+          "sma20": 1077.25,
+          "sma50": 978.3
+        },
+        {
+          "date": "Aug 23",
+          "close": 1105.0,
+          "sma20": 1078.5,
+          "sma50": 982.3
+        },
+        {
+          "date": "Aug 24",
+          "close": 1085.0,
+          "sma20": 1077.75,
+          "sma50": 985.7
+        },
+        {
+          "date": "Aug 25",
+          "close": 1070.0,
+          "sma20": 1076.75,
+          "sma50": 989.0
+        },
+        {
+          "date": "Aug 28",
+          "close": 1050.0,
+          "sma20": 1072.75,
+          "sma50": 992.0
+        },
+        {
+          "date": "Aug 29",
+          "close": 1040.0,
+          "sma20": 1068.25,
+          "sma50": 995.2
+        },
+        {
+          "date": "Aug 30",
+          "close": 1075.0,
+          "sma20": 1069.25,
+          "sma50": 998.6
+        },
+        {
+          "date": "Aug 31",
+          "close": 1070.0,
+          "sma20": 1068.0,
+          "sma50": 1002.0
+        },
+        {
+          "date": "Sep 01",
+          "close": 1290.0,
+          "sma20": 1079.0,
+          "sma50": 1009.5
+        },
+        {
+          "date": "Sep 04",
+          "close": 1290.0,
+          "sma20": 1090.75,
+          "sma50": 1017.2
+        },
+        {
+          "date": "Sep 05",
+          "close": 1255.0,
+          "sma20": 1100.0,
+          "sma50": 1024.2
+        },
+        {
+          "date": "Sep 06",
+          "close": 1380.0,
+          "sma20": 1116.75,
+          "sma50": 1033.2
+        },
+        {
+          "date": "Sep 07",
+          "close": 1320.0,
+          "sma20": 1130.25,
+          "sma50": 1041.2
+        },
+        {
+          "date": "Sep 08",
+          "close": 1330.0,
+          "sma20": 1143.25,
+          "sma50": 1049.7
+        },
+        {
+          "date": "Sep 11",
+          "close": 1355.0,
+          "sma20": 1158.25,
+          "sma50": 1058.8
+        },
+        {
+          "date": "Sep 12",
+          "close": 1490.0,
+          "sma20": 1181.25,
+          "sma50": 1070.8
+        },
+        {
+          "date": "Sep 13",
+          "close": 1545.0,
+          "sma20": 1204.5,
+          "sma50": 1083.8
+        },
+        {
+          "date": "Sep 14",
+          "close": 1555.0,
+          "sma20": 1228.25,
+          "sma50": 1096.9
+        },
+        {
+          "date": "Sep 15",
+          "close": 1630.0,
+          "sma20": 1256.25,
+          "sma50": 1110.9
+        },
+        {
+          "date": "Sep 18",
+          "close": 1605.0,
+          "sma20": 1282.0,
+          "sma50": 1123.9
+        },
+        {
+          "date": "Sep 19",
+          "close": 1665.0,
+          "sma20": 1310.25,
+          "sma50": 1139.0
+        },
+        {
+          "date": "Sep 20",
+          "close": 1570.0,
+          "sma20": 1333.5,
+          "sma50": 1152.1
+        },
+        {
+          "date": "Sep 21",
+          "close": 1515.0,
+          "sma20": 1355.0,
+          "sma50": 1164.5
+        },
+        {
+          "date": "Sep 22",
+          "close": 1600.0,
+          "sma20": 1381.5,
+          "sma50": 1178.6
+        },
+        {
+          "date": "Sep 25",
+          "close": 1640.0,
+          "sma20": 1411.0,
+          "sma50": 1193.6
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 1630.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 1490.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 1290.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 1070.0,
+          "prediction": 2,
+          "truth": 1,
+          "correct": false
+        },
+        {
+          "date": "2023-08-25",
+          "close": 1070.0,
+          "prediction": 2,
+          "truth": 2,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 1100.0,
+          "prediction": 2,
+          "truth": 1,
+          "correct": false
+        },
+        {
+          "date": "2023-08-16",
+          "close": 1080.0,
+          "prediction": 2,
+          "truth": 2,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 1055.0,
+          "prediction": 2,
+          "truth": 2,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "AKRA Catat Penjualan Lahan KEK JIIPE 29,6 Ha per September 2023 - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-10-05",
+          "sentiment": 2
+        },
+        {
+          "title": "Lepas Multi Tambangjaya, INDY Bidik 50% Pendapatan dari Sektor Non Batubara - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Rekomendasi Saham Erajaya (ERAA) Saat Kenaikan Penjualan Belum Mengangkat Laba - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": -1
+        },
+        {
+          "title": "Selain CUAN, Emiten Tambang MEDC, PGEO, hingga UNTR Gencar Akuisisi - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Bos Maybank Indonesia (BNII) Ungkap Proses UUS Menuju Spin Off - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        }
+      ]
+    },
+    "PGAS": {
+      "symbol": "PGAS.JK",
+      "name": "Perusahaan Gas Negara",
+      "sector": "Energy",
+      "date": "2023-09-25",
+      "close": 1385.0,
+      "previous_close": 1380.0,
+      "sentiment": 2,
+      "rsi": 48.58,
+      "macd": -6.16,
+      "macd_signal": -6.58,
+      "target_price": 1464.05,
+      "model_date": "2023-09-25",
+      "signal": 0,
+      "consensus": "2/3",
+      "paths": [
+        1,
+        0,
+        0
+      ],
+      "metrics": {
+        "Price Prediction": {
+          "accuracy": 0.8443,
+          "f1": 0.8442
+        },
+        "Deep Learning": {
+          "accuracy": 0.9344,
+          "f1": 0.9345
+        },
+        "Machine Learning": {
+          "accuracy": 0.8689,
+          "f1": 0.8702
+        },
+        "Ensemble Model": {
+          "accuracy": 0.8975,
+          "f1": 0.8985
+        },
+        "Weighted Ensemble": {
+          "accuracy": 0.8975,
+          "f1": 0.8985
+        }
+      },
+      "chart": [
+        {
+          "date": "Jun 13",
+          "close": 1305.0,
+          "sma20": 1389.5,
+          "sma50": 1389.7
+        },
+        {
+          "date": "Jun 14",
+          "close": 1305.0,
+          "sma20": 1383.75,
+          "sma50": 1389.1
+        },
+        {
+          "date": "Jun 15",
+          "close": 1315.0,
+          "sma20": 1379.0,
+          "sma50": 1388.4
+        },
+        {
+          "date": "Jun 16",
+          "close": 1310.0,
+          "sma20": 1375.5,
+          "sma50": 1387.4
+        },
+        {
+          "date": "Jun 19",
+          "close": 1315.0,
+          "sma20": 1372.5,
+          "sma50": 1386.2
+        },
+        {
+          "date": "Jun 20",
+          "close": 1315.0,
+          "sma20": 1371.0,
+          "sma50": 1384.8
+        },
+        {
+          "date": "Jun 21",
+          "close": 1305.0,
+          "sma20": 1368.25,
+          "sma50": 1382.8
+        },
+        {
+          "date": "Jun 22",
+          "close": 1310.0,
+          "sma20": 1365.75,
+          "sma50": 1381.1
+        },
+        {
+          "date": "Jun 23",
+          "close": 1305.0,
+          "sma20": 1362.5,
+          "sma50": 1379.6
+        },
+        {
+          "date": "Jun 26",
+          "close": 1305.0,
+          "sma20": 1360.0,
+          "sma50": 1378.6
+        },
+        {
+          "date": "Jun 27",
+          "close": 1305.0,
+          "sma20": 1358.0,
+          "sma50": 1376.6
+        },
+        {
+          "date": "Jul 03",
+          "close": 1310.0,
+          "sma20": 1353.0,
+          "sma50": 1375.1
+        },
+        {
+          "date": "Jul 04",
+          "close": 1340.0,
+          "sma20": 1347.5,
+          "sma50": 1374.6
+        },
+        {
+          "date": "Jul 05",
+          "close": 1345.0,
+          "sma20": 1343.25,
+          "sma50": 1374.4
+        },
+        {
+          "date": "Jul 06",
+          "close": 1360.0,
+          "sma20": 1339.25,
+          "sma50": 1374.1
+        },
+        {
+          "date": "Jul 07",
+          "close": 1350.0,
+          "sma20": 1335.0,
+          "sma50": 1373.4
+        },
+        {
+          "date": "Jul 10",
+          "close": 1350.0,
+          "sma20": 1331.25,
+          "sma50": 1372.8
+        },
+        {
+          "date": "Jul 11",
+          "close": 1340.0,
+          "sma20": 1326.75,
+          "sma50": 1371.8
+        },
+        {
+          "date": "Jul 12",
+          "close": 1340.0,
+          "sma20": 1322.25,
+          "sma50": 1370.5
+        },
+        {
+          "date": "Jul 13",
+          "close": 1340.0,
+          "sma20": 1323.5,
+          "sma50": 1368.9
+        },
+        {
+          "date": "Jul 14",
+          "close": 1360.0,
+          "sma20": 1326.25,
+          "sma50": 1367.2
+        },
+        {
+          "date": "Jul 17",
+          "close": 1370.0,
+          "sma20": 1329.5,
+          "sma50": 1366.0
+        },
+        {
+          "date": "Jul 18",
+          "close": 1365.0,
+          "sma20": 1332.0,
+          "sma50": 1364.7
+        },
+        {
+          "date": "Jul 20",
+          "close": 1370.0,
+          "sma20": 1335.0,
+          "sma50": 1364.3
+        },
+        {
+          "date": "Jul 21",
+          "close": 1380.0,
+          "sma20": 1338.25,
+          "sma50": 1364.0
+        },
+        {
+          "date": "Jul 24",
+          "close": 1395.0,
+          "sma20": 1342.25,
+          "sma50": 1364.3
+        },
+        {
+          "date": "Jul 25",
+          "close": 1375.0,
+          "sma20": 1345.75,
+          "sma50": 1364.4
+        },
+        {
+          "date": "Jul 26",
+          "close": 1385.0,
+          "sma20": 1349.5,
+          "sma50": 1364.3
+        },
+        {
+          "date": "Jul 27",
+          "close": 1365.0,
+          "sma20": 1352.5,
+          "sma50": 1363.3
+        },
+        {
+          "date": "Jul 28",
+          "close": 1370.0,
+          "sma20": 1355.75,
+          "sma50": 1362.2
+        },
+        {
+          "date": "Jul 31",
+          "close": 1365.0,
+          "sma20": 1358.75,
+          "sma50": 1361.1
+        },
+        {
+          "date": "Aug 01",
+          "close": 1385.0,
+          "sma20": 1362.5,
+          "sma50": 1360.4
+        },
+        {
+          "date": "Aug 02",
+          "close": 1380.0,
+          "sma20": 1364.5,
+          "sma50": 1359.8
+        },
+        {
+          "date": "Aug 03",
+          "close": 1385.0,
+          "sma20": 1366.5,
+          "sma50": 1359.9
+        },
+        {
+          "date": "Aug 04",
+          "close": 1390.0,
+          "sma20": 1368.0,
+          "sma50": 1360.2
+        },
+        {
+          "date": "Aug 07",
+          "close": 1395.0,
+          "sma20": 1370.25,
+          "sma50": 1361.2
+        },
+        {
+          "date": "Aug 08",
+          "close": 1400.0,
+          "sma20": 1372.75,
+          "sma50": 1362.0
+        },
+        {
+          "date": "Aug 09",
+          "close": 1395.0,
+          "sma20": 1375.5,
+          "sma50": 1362.7
+        },
+        {
+          "date": "Aug 10",
+          "close": 1400.0,
+          "sma20": 1378.5,
+          "sma50": 1363.3
+        },
+        {
+          "date": "Aug 11",
+          "close": 1405.0,
+          "sma20": 1381.75,
+          "sma50": 1364.3
+        },
+        {
+          "date": "Aug 14",
+          "close": 1390.0,
+          "sma20": 1383.25,
+          "sma50": 1365.2
+        },
+        {
+          "date": "Aug 15",
+          "close": 1460.0,
+          "sma20": 1387.75,
+          "sma50": 1366.2
+        },
+        {
+          "date": "Aug 16",
+          "close": 1485.0,
+          "sma20": 1393.75,
+          "sma50": 1366.9
+        },
+        {
+          "date": "Aug 18",
+          "close": 1495.0,
+          "sma20": 1400.0,
+          "sma50": 1368.2
+        },
+        {
+          "date": "Aug 21",
+          "close": 1490.0,
+          "sma20": 1405.5,
+          "sma50": 1369.2
+        },
+        {
+          "date": "Aug 22",
+          "close": 1525.0,
+          "sma20": 1412.0,
+          "sma50": 1371.0
+        },
+        {
+          "date": "Aug 23",
+          "close": 1500.0,
+          "sma20": 1418.25,
+          "sma50": 1372.5
+        },
+        {
+          "date": "Aug 24",
+          "close": 1450.0,
+          "sma20": 1421.5,
+          "sma50": 1372.9
+        },
+        {
+          "date": "Aug 25",
+          "close": 1450.0,
+          "sma20": 1425.75,
+          "sma50": 1373.3
+        },
+        {
+          "date": "Aug 28",
+          "close": 1455.0,
+          "sma20": 1430.0,
+          "sma50": 1376.1
+        },
+        {
+          "date": "Aug 29",
+          "close": 1460.0,
+          "sma20": 1434.75,
+          "sma50": 1379.2
+        },
+        {
+          "date": "Aug 30",
+          "close": 1395.0,
+          "sma20": 1435.25,
+          "sma50": 1381.0
+        },
+        {
+          "date": "Aug 31",
+          "close": 1375.0,
+          "sma20": 1435.0,
+          "sma50": 1382.2
+        },
+        {
+          "date": "Sep 01",
+          "close": 1355.0,
+          "sma20": 1433.5,
+          "sma50": 1383.1
+        },
+        {
+          "date": "Sep 04",
+          "close": 1350.0,
+          "sma20": 1431.5,
+          "sma50": 1383.8
+        },
+        {
+          "date": "Sep 05",
+          "close": 1350.0,
+          "sma20": 1429.25,
+          "sma50": 1384.5
+        },
+        {
+          "date": "Sep 06",
+          "close": 1390.0,
+          "sma20": 1428.75,
+          "sma50": 1386.2
+        },
+        {
+          "date": "Sep 07",
+          "close": 1355.0,
+          "sma20": 1426.75,
+          "sma50": 1387.1
+        },
+        {
+          "date": "Sep 08",
+          "close": 1355.0,
+          "sma20": 1424.5,
+          "sma50": 1388.1
+        },
+        {
+          "date": "Sep 11",
+          "close": 1355.0,
+          "sma20": 1422.0,
+          "sma50": 1389.1
+        },
+        {
+          "date": "Sep 12",
+          "close": 1345.0,
+          "sma20": 1419.75,
+          "sma50": 1389.9
+        },
+        {
+          "date": "Sep 13",
+          "close": 1435.0,
+          "sma20": 1418.5,
+          "sma50": 1392.4
+        },
+        {
+          "date": "Sep 14",
+          "close": 1405.0,
+          "sma20": 1414.5,
+          "sma50": 1393.7
+        },
+        {
+          "date": "Sep 15",
+          "close": 1380.0,
+          "sma20": 1408.75,
+          "sma50": 1394.4
+        },
+        {
+          "date": "Sep 18",
+          "close": 1390.0,
+          "sma20": 1403.75,
+          "sma50": 1395.0
+        },
+        {
+          "date": "Sep 19",
+          "close": 1385.0,
+          "sma20": 1396.75,
+          "sma50": 1395.7
+        },
+        {
+          "date": "Sep 20",
+          "close": 1390.0,
+          "sma20": 1391.25,
+          "sma50": 1396.5
+        },
+        {
+          "date": "Sep 21",
+          "close": 1375.0,
+          "sma20": 1387.5,
+          "sma50": 1397.2
+        },
+        {
+          "date": "Sep 22",
+          "close": 1380.0,
+          "sma20": 1384.0,
+          "sma50": 1398.0
+        },
+        {
+          "date": "Sep 25",
+          "close": 1385.0,
+          "sma20": 1380.5,
+          "sma50": 1398.9
+        }
+      ],
+      "history": [
+        {
+          "date": "2023-09-15",
+          "close": 1380.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-12",
+          "close": 1345.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-09-04",
+          "close": 1350.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-31",
+          "close": 1375.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-25",
+          "close": 1450.0,
+          "prediction": 0,
+          "truth": 0,
+          "correct": true
+        },
+        {
+          "date": "2023-08-22",
+          "close": 1525.0,
+          "prediction": 1,
+          "truth": 0,
+          "correct": false
+        },
+        {
+          "date": "2023-08-16",
+          "close": 1485.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        },
+        {
+          "date": "2023-08-11",
+          "close": 1405.0,
+          "prediction": 1,
+          "truth": 1,
+          "correct": true
+        }
+      ],
+      "news": [
+        {
+          "title": "Di Balik Performa Mentereng Saham Pertamina Geothermal (PGEO) - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Proyek Biomethane Konsorsium PGN dengan JGC, Osaka Gas dan INPEX di Sumatera Selatan - Investor.ID",
+          "publisher": "Investor.ID",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "United Tractors (UNTR) Cetak Penjualan Komatsu 3.951 Unit Agustus 2023 - Bisnis.com",
+          "publisher": "Bisnis.com",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "Ini Alasan Indika Energy (INDY) Jual Anak Usaha ke Emiten Prajogo Pangestu - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": 2
+        },
+        {
+          "title": "7 Tips Beli Saham bagi Investor Saham Pemula - Investasi Kontan",
+          "publisher": "Investasi Kontan",
+          "date": "2023-09-25",
+          "sentiment": 2
+        }
+      ]
+    }
+  }
+}
