@@ -15,7 +15,6 @@ from typing import Dict, List, Optional, Tuple, Union
 import numpy as np
 import pandas as pd
 
-# Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger("DataPipeline")
 
@@ -83,11 +82,8 @@ class NewsTextPreprocessor:
         """Applies case folding, special character removal, and tokenization."""
         if not isinstance(text, str):
             return ""
-        # Case folding
         text = text.lower()
-        # Remove numbers and special characters
         cleaned = "".join([char if char.isalnum() or char.isspace() else " " for char in text])
-        # Remove extra whitespace & stopwords
         tokens = [word for word in cleaned.split() if word not in self.stopwords and len(word) > 2]
         return " ".join(tokens)
 
@@ -102,36 +98,36 @@ class SVMPseudolabeler:
     def pseudolabel(self, unlabelled_texts: List[str], initial_labelled: List[Tuple[str, int]]) -> pd.DataFrame:
         """
         Executes pseudolabeling iteration from 0.95 down to min_confidence threshold.
-        Returns DataFrame with assigned sentiment flag:
-        -1: Negative, 0: No Sentiment/Neutral, 1: Mix, 2: Positive
+        Returns sentiment flags -1, 0, 1, or 2; samples below the confidence
+        floor retain a missing flag instead of being assigned as neutral.
         """
         from sklearn.feature_extraction.text import CountVectorizer
         from sklearn.svm import SVC
+        from scipy.sparse import vstack
 
-        # 1. Vectorization
         vectorizer = CountVectorizer(max_features=5000, ngram_range=(1, 2))
         
         train_texts, train_labels = zip(*initial_labelled) if initial_labelled else ([], [])
         
         if not train_texts:
-            logger.warning("No initial labeled seed provided. Using Lexicon fallback.")
-            return pd.DataFrame({'text': unlabelled_texts, 'sentiment_flag': 0})
+            logger.warning("No initial labeled seed provided; news remains unlabeled.")
+            return pd.DataFrame({'text': unlabelled_texts, 'sentiment_flag': np.nan})
 
         X_train = vectorizer.fit_transform(train_texts)
         y_train = np.array(train_labels)
 
         X_unlabelled = vectorizer.transform(unlabelled_texts)
+        if np.unique(y_train).size < 2:
+            logger.warning("Pseudolabeling needs at least two seed classes; news remains unlabeled.")
+            return pd.DataFrame({'text': unlabelled_texts, 'sentiment_flag': np.nan})
+
         unlabelled_indices = list(range(len(unlabelled_texts)))
-        
         current_confidence = 0.95
         predictions = {}
 
-        while current_confidence >= self.min_confidence and unlabelled_indices:
+        while current_confidence + 1e-9 >= self.min_confidence and unlabelled_indices:
             model = SVC(kernel='rbf', C=1.0, probability=True, random_state=42)
             model.fit(X_train, y_train)
-
-            if len(unlabelled_indices) == 0:
-                break
 
             X_curr = X_unlabelled[unlabelled_indices]
             probs = model.predict_proba(X_curr)
@@ -139,25 +135,21 @@ class SVMPseudolabeler:
             pred_labels = model.classes_[np.argmax(probs, axis=1)]
 
             high_conf_mask = max_probs >= current_confidence
-            
             if not np.any(high_conf_mask):
                 current_confidence -= self.step
                 continue
 
-            # Add high-confidence samples to training pool
             high_conf_idx = [unlabelled_indices[i] for i in range(len(unlabelled_indices)) if high_conf_mask[i]]
-            for orig_i, label in zip(high_conf_idx, pred_labels[high_conf_mask]):
+            high_conf_labels = pred_labels[high_conf_mask]
+            for orig_i, label in zip(high_conf_idx, high_conf_labels):
                 predictions[orig_i] = label
 
-            # Update unlabelled pool
+            X_train = vstack((X_train, X_unlabelled[high_conf_idx]))
+            y_train = np.concatenate((y_train, high_conf_labels))
             unlabelled_indices = [idx for idx in unlabelled_indices if idx not in predictions]
             current_confidence -= self.step
 
-        # Default remaining to 0 (neutral/no sentiment)
-        for idx in unlabelled_indices:
-            predictions[idx] = 0
-
-        final_flags = [predictions[i] for i in range(len(unlabelled_texts))]
+        final_flags = [predictions.get(i, np.nan) for i in range(len(unlabelled_texts))]
         return pd.DataFrame({'text': unlabelled_texts, 'sentiment_flag': final_flags})
 
 
@@ -260,7 +252,6 @@ def generate_sample_fused_dataset() -> pd.DataFrame:
         'volume': np.random.randint(1000000, 50000000, size=100)
     })
 
-    # Compute 14 technical indicators
     stock_with_tech = TechnicalIndicatorExtractor.compute_indicators(raw_stock)
 
     # Mock news

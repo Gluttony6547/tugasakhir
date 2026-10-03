@@ -1,6 +1,6 @@
 import logging
 from contextlib import asynccontextmanager
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -20,7 +20,8 @@ from market_data import (
 )
 from model_service import (
     HORIZON_DAYS,
-    RETURN_THRESHOLD,
+    RETURN_THRESHOLDS,
+    SUPPORTED_HORIZONS,
     SIGNAL_LABELS,
     ModelInferenceError,
     ModelUnavailable,
@@ -43,41 +44,60 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 logger = logging.getLogger(__name__)
 PROJECT_DIRECTORY = Path(__file__).resolve().parent
 STATIC_DIRECTORY = PROJECT_DIRECTORY / "static"
-FEATURE_SET = "50 harga penutupan harian"
-MODEL_VERSION = "target-50-h5-v1"
+MODEL_VERSION_PREFIX = "target-{}-h5-v1"
 
 
-@asynccontextmanager
-async def lifespan(_: FastAPI):
+def jakarta_today() -> date:
+    """Calendar date in WIB (UTC+7, no DST) so records match the IDX trading day
+    even when the deployment host runs on UTC."""
+    return (datetime.now(timezone.utc) + timedelta(hours=7)).date()
+
+
+def _utc(value: datetime) -> datetime:
+    # SQLite stores server_default timestamps as naive UTC; without the offset
+    # browsers render history times as if they were local time.
+    return value if value.tzinfo is not None else value.replace(tzinfo=timezone.utc)
+
+
+def init_database() -> None:
     Base.metadata.create_all(bind=engine)
     with SessionLocal() as db:
         for symbol in SUPPORTED_SYMBOLS:
             if db.get(Stock, symbol) is None:
                 db.add(Stock(symbol=symbol))
-            if db.scalar(
-                select(ModelVersion).where(
-                    ModelVersion.name == f"LSTM-{symbol}",
-                    ModelVersion.version == MODEL_VERSION,
-                )
-            ) is None:
-                db.add(
-                    ModelVersion(
-                        name=f"LSTM-{symbol}",
-                        version=MODEL_VERSION,
-                        architecture="LSTM regression",
-                        artifact_path=f"models/LSTM_{symbol}_Target_50.h5",
-                        feature_set=FEATURE_SET,
-                        horizon_days=HORIZON_DAYS,
-                        is_production=True,
+            for horizon_days in SUPPORTED_HORIZONS:
+                version = MODEL_VERSION_PREFIX.format(horizon_days)
+                if db.scalar(
+                    select(ModelVersion).where(
+                        ModelVersion.name == f"LSTM-{symbol}",
+                        ModelVersion.version == version,
                     )
-                )
+                ) is None:
+                    db.add(
+                        ModelVersion(
+                            name=f"LSTM-{symbol}",
+                            version=version,
+                            architecture="LSTM regression",
+                            artifact_path=f"models/LSTM_{symbol}_Target_{horizon_days}.h5",
+                            feature_set=f"{horizon_days} harga penutupan harian",
+                            horizon_days=horizon_days,
+                            is_production=True,
+                        )
+                    )
         db.commit()
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    # The Vercel entrypoint also calls init_database at import time because the
+    # runtime may not deliver ASGI lifespan startup events.
+    init_database()
     yield
 
 
 app = FastAPI(
     title="Stock Signal Prediction",
-    description="Dashboard penelitian saham IDX dengan prediksi LSTM horizon 50 hari.",
+    description="Dashboard penelitian saham IDX dengan prediksi LSTM untuk horizon 1, 5, 10, 20, atau 50 hari.",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -104,7 +124,6 @@ def _prediction_response(db: Session, prediction: Prediction) -> PredictionRespo
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Relasi model atau permintaan prediksi tidak ditemukan.",
         )
-
     price_source = prediction.feature_snapshot.get("data_source", "unknown")
     signal_label = SIGNAL_LABELS.get(prediction.signal)
     if signal_label is None:
@@ -128,7 +147,7 @@ def _prediction_response(db: Session, prediction: Prediction) -> PredictionRespo
         architecture=model_version.architecture,
         feature_set=model_version.feature_set,
         data_source=price_source,
-        created_at=prediction.created_at,
+        created_at=_utc(prediction.created_at),
     )
 
 
@@ -180,9 +199,9 @@ def market_data(
     prices = [
         PricePoint(
             date=pd.Timestamp(row.date).date(),
-            open=float(row.open),
-            high=float(row.high),
-            low=float(row.low),
+            open=float(row.open) if pd.notna(row.open) else None,
+            high=float(row.high) if pd.notna(row.high) else None,
+            low=float(row.low) if pd.notna(row.low) else None,
             close=float(row.close),
             volume=int(row.volume),
         )
@@ -211,21 +230,34 @@ def market_data(
     status_code=status.HTTP_201_CREATED,
     tags=["Predictions"],
 )
-def create_prediction(symbol: str, db: Session = Depends(get_db)):
+def create_prediction(
+    symbol: str,
+    horizon_days: int = Query(default=HORIZON_DAYS),
+    db: Session = Depends(get_db),
+):
     normalized_symbol = _supported_symbol(symbol)
+    if horizon_days not in SUPPORTED_HORIZONS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"Horizon harus salah satu dari {', '.join(map(str, SUPPORTED_HORIZONS))} hari.",
+        )
+    # Attach to the session only after inference: _store_prices commits mid-request,
+    # which would otherwise freeze this row as "pending" when a later step crashes.
     request = PredictionRequest(symbol=normalized_symbol, status="pending")
-    db.add(request)
-    db.flush()
 
     try:
         snapshot = get_market_snapshot(db, normalized_symbol, "5y")
-        predicted_price = predict_price(normalized_symbol, snapshot.frame["close"])
+        predicted_price = predict_price(
+            normalized_symbol, snapshot.frame["close"], horizon_days
+        )
         current_price = float(snapshot.frame["close"].iloc[-1])
-        signal, return_percent = classify_return(predicted_price, current_price)
+        signal, return_percent = classify_return(
+            predicted_price, current_price, horizon_days
+        )
         model_version = db.scalar(
             select(ModelVersion).where(
                 ModelVersion.name == f"LSTM-{normalized_symbol}",
-                ModelVersion.version == MODEL_VERSION,
+                ModelVersion.version == MODEL_VERSION_PREFIX.format(horizon_days),
             )
         )
         if model_version is None:
@@ -233,6 +265,7 @@ def create_prediction(symbol: str, db: Session = Depends(get_db)):
     except (MarketDataUnavailable, ModelUnavailable, ModelInferenceError) as error:
         request.status = "failed"
         request.error_message = str(error)
+        db.add(request)
         db.commit()
         logger.warning("Prediction request failed for %s: %s", normalized_symbol, error)
         raise HTTPException(
@@ -240,22 +273,24 @@ def create_prediction(symbol: str, db: Session = Depends(get_db)):
             detail=str(error),
         ) from error
 
+    db.add(request)
+    db.flush()
     prediction = Prediction(
         request_id=request.id,
         symbol=normalized_symbol,
         model_version_id=model_version.id,
-        prediction_date=date.today(),
+        prediction_date=jakarta_today(),
         input_as_of=snapshot.data_as_of,
-        horizon_days=HORIZON_DAYS,
+        horizon_days=horizon_days,
         current_price=current_price,
         predicted_price=predicted_price,
         return_percent=return_percent,
         signal=signal,
-        threshold_percent=RETURN_THRESHOLD * 100,
+        threshold_percent=RETURN_THRESHOLDS[horizon_days] * 100,
         feature_snapshot={
-            "feature_set": FEATURE_SET,
+            "feature_set": model_version.feature_set,
             "data_source": snapshot.source,
-            "threshold_percent": RETURN_THRESHOLD * 100,
+            "threshold_percent": RETURN_THRESHOLDS[horizon_days] * 100,
         },
     )
     request.status = "completed"
@@ -270,12 +305,24 @@ def create_prediction(symbol: str, db: Session = Depends(get_db)):
     response_model=PredictionResponse,
     tags=["Predictions"],
 )
-def latest_prediction(symbol: str, db: Session = Depends(get_db)):
+def latest_prediction(
+    symbol: str,
+    horizon_days: int = Query(default=HORIZON_DAYS),
+    db: Session = Depends(get_db),
+):
     normalized_symbol = _supported_symbol(symbol)
+    if horizon_days not in SUPPORTED_HORIZONS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"Horizon harus salah satu dari {', '.join(map(str, SUPPORTED_HORIZONS))} hari.",
+        )
     prediction = db.scalar(
         select(Prediction)
-        .where(Prediction.symbol == normalized_symbol)
-        .order_by(Prediction.created_at.desc())
+        .where(
+            Prediction.symbol == normalized_symbol,
+            Prediction.horizon_days == horizon_days,
+        )
+        .order_by(Prediction.created_at.desc(), Prediction.id.desc())
         .limit(1)
     )
     if prediction is None:
@@ -293,14 +340,23 @@ def latest_prediction(symbol: str, db: Session = Depends(get_db)):
 )
 def prediction_history(
     symbol: str,
+    horizon_days: int = Query(default=HORIZON_DAYS),
     limit: int = Query(default=30, ge=1, le=100),
     db: Session = Depends(get_db),
 ):
     normalized_symbol = _supported_symbol(symbol)
+    if horizon_days not in SUPPORTED_HORIZONS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"Horizon harus salah satu dari {', '.join(map(str, SUPPORTED_HORIZONS))} hari.",
+        )
     predictions = db.scalars(
         select(Prediction)
-        .where(Prediction.symbol == normalized_symbol)
-        .order_by(Prediction.created_at.desc())
+        .where(
+            Prediction.symbol == normalized_symbol,
+            Prediction.horizon_days == horizon_days,
+        )
+        .order_by(Prediction.created_at.desc(), Prediction.id.desc())
         .limit(limit)
     ).all()
     return [_prediction_response(db, prediction) for prediction in predictions]

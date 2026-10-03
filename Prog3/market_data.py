@@ -165,6 +165,9 @@ def _frame_from_database(db: Session, symbol: str, period: str) -> pd.DataFrame:
 
 def _store_prices(db: Session, symbol: str, frame: pd.DataFrame, source: str) -> None:
     db.merge(Stock(symbol=symbol))
+    # The cache schema requires non-null OHLC; incomplete rows are still served
+    # to clients but must not poison the cache.
+    frame = frame.dropna(subset=["open", "high", "low"])
     records = [
         {
             "symbol": symbol,

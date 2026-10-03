@@ -12,9 +12,9 @@ class StockResponse(BaseModel):
 
 class PricePoint(BaseModel):
     date: date
-    open: float
-    high: float
-    low: float
+    open: float | None
+    high: float | None
+    low: float | None
     close: float
     volume: int
 

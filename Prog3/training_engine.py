@@ -23,9 +23,7 @@ SEED = 42
 np.random.seed(SEED)
 torch.manual_seed(SEED)
 
-# ==========================================
-# 1. PyTorch Deep Learning Architectures
-# ==========================================
+# PyTorch deep learning architectures
 
 class LSTMRegressor(nn.Module):
     """Path 1: LSTM Price Regression Model"""
@@ -62,9 +60,7 @@ class RecurrentClassifier(nn.Module):
         out = self.fc(out[:, -1, :])
         return out
 
-# ==========================================
-# 2. 3-Path Hybrid Ensemble Engine
-# ==========================================
+# 3-path hybrid ensemble engine
 
 class HybridEnsembleEngine:
     """
@@ -226,9 +222,7 @@ class HybridEnsembleEngine:
             'predicted_prices': pred_prices
         }
 
-# ==========================================
-# 3. Execution Verification Pipeline
-# ==========================================
+# Execution verification pipeline
 
 if __name__ == "__main__":
     logging.info("Executing Phase 4 Training Engine Verification...")

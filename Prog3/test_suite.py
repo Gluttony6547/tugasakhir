@@ -1,4 +1,5 @@
 import os
+import re
 from datetime import date
 
 os.environ.setdefault("DATABASE_URL", "sqlite://")
@@ -10,10 +11,12 @@ import pytest
 from fastapi.testclient import TestClient
 
 import backend_api
+import market_data
 from data_pipeline import TemporalDataFuser, TechnicalIndicatorExtractor, generate_sample_fused_dataset
-from database import Base, engine
+from database import Base, SessionLocal, engine
 from market_data import MarketSnapshot, fetch_yahoo_history, load_research_history
-from model_service import classify_return, predict_price
+from model_service import SUPPORTED_HORIZONS, ModelInferenceError, classify_return, predict_price
+from models import PredictionRequest
 
 
 @pytest.fixture
@@ -60,13 +63,26 @@ def test_indicators_are_calculated_from_ohlcv_prices():
 
 
 @pytest.mark.parametrize(
-    ("predicted_price", "expected_signal"),
-    [(111.0, 0), (111.01, 1), (89.0, 0), (88.99, -1), (100.0, 0)],
+    ("horizon_days", "threshold_percent"), [(1, 1.5), (5, 3), (10, 6), (20, 9), (50, 11)]
 )
-def test_signal_uses_strict_eleven_percent_threshold(predicted_price, expected_signal):
-    signal, _ = classify_return(predicted_price, 100.0)
+def test_signal_uses_research_threshold_for_each_horizon(horizon_days, threshold_percent):
+    signal, return_percent = classify_return(100 * (1 + threshold_percent / 100), 100, horizon_days)
 
-    assert signal == expected_signal
+    assert signal == 1
+    assert return_percent == pytest.approx(threshold_percent)
+
+
+def test_pseudolabeler_retrains_on_high_confidence_samples():
+    from data_pipeline import SVMPseudolabeler
+
+    rows = ["saham untung", "saham naik", "saham rugi", "saham turun"]
+    seed = [("saham untung", 2), ("saham naik", 2), ("saham rugi", -1), ("saham turun", -1)]
+
+    result = SVMPseudolabeler(min_confidence=0.8).pseudolabel(rows, seed)
+
+    assert len(result) == len(rows)
+    assert set(result["sentiment_flag"]) <= {-1, 0, 1, 2}
+    assert result["sentiment_flag"].isin([-1, 2]).all()
 
 
 def test_health_reports_database_and_available_artifacts(client):
@@ -74,7 +90,7 @@ def test_health_reports_database_and_available_artifacts(client):
 
     assert response.status_code == 200
     assert response.json()["database"] == "connected"
-    assert response.json()["available_models"] == 10
+    assert response.json()["available_models"] == 50
 
 
 def test_stock_list_matches_available_research_models(client):
@@ -175,24 +191,109 @@ def test_prediction_uses_model_result_and_persists_history(client, monkeypatch):
     monkeypatch.setattr(backend_api, "get_market_snapshot", lambda *_args, **_kwargs: snapshot)
     monkeypatch.setattr(backend_api, "predict_price", lambda *_args, **_kwargs: 1500.0)
 
-    response = client.post("/api/v1/predictions/ADRO")
+    response = client.post("/api/v1/predictions/ADRO?horizon_days=20")
 
     assert response.status_code == 201
     result = response.json()
     assert result["signal"] in {-1, 0, 1}
     assert result["predicted_price"] == 1500.0
     assert result["architecture"] == "LSTM regression"
+    assert result["horizon_days"] == 20
+    assert result["threshold_percent"] == 9
 
-    history = client.get("/api/v1/predictions/history/ADRO")
+    history = client.get("/api/v1/predictions/history/ADRO?horizon_days=20")
     assert history.status_code == 200
     assert len(history.json()) == 1
 
 
-def test_saved_h5_model_returns_a_price_in_the_ticker_scale():
+@pytest.mark.parametrize("horizon_days", SUPPORTED_HORIZONS)
+def test_saved_h5_model_returns_a_price_in_the_ticker_scale(horizon_days):
     research = load_research_history("ADRO", "5y")
 
-    predicted_price = predict_price("ADRO", research["close"])
+    predicted_price = predict_price("ADRO", research["close"], horizon_days)
 
     assert np.isfinite(predicted_price)
     assert predicted_price > 0
     assert predicted_price < 100_000
+
+
+def test_prediction_rejects_unsupported_horizon(client):
+    response = client.post("/api/v1/predictions/ADRO?horizon_days=7")
+
+    assert response.status_code == 422
+
+
+def test_market_endpoint_tolerates_close_only_prices(client, monkeypatch):
+    def close_only(symbol, period):
+        research = load_research_history(symbol, period)
+        return market_data._normalize_prices(research.set_index("date")[["close"]])
+
+    monkeypatch.setattr("market_data.fetch_yahoo_history", close_only)
+
+    response = client.get("/api/v1/market-data/ADRO?period=6mo")
+
+    assert response.status_code == 200
+    point = response.json()["prices"][0]
+    assert point["close"] > 0
+    assert point["open"] is None
+
+
+def test_history_timestamps_include_an_explicit_timezone(client, monkeypatch):
+    research = load_research_history("ADRO", "5y")
+    snapshot = MarketSnapshot(
+        symbol="ADRO",
+        source="research_dataset",
+        data_as_of=research["date"].max().date(),
+        warning=None,
+        frame=research,
+    )
+    monkeypatch.setattr(backend_api, "get_market_snapshot", lambda *_args, **_kwargs: snapshot)
+    monkeypatch.setattr(backend_api, "predict_price", lambda *_args, **_kwargs: 1500.0)
+
+    client.post("/api/v1/predictions/ADRO?horizon_days=20")
+    history = client.get("/api/v1/predictions/history/ADRO?horizon_days=20").json()
+
+    created = history[0]["created_at"]
+    assert re.search(r"(Z|[+-]\d\d:\d\d)$", created), f"created_at lacks an offset: {created}"
+
+
+def test_failed_prediction_request_is_recorded(client, monkeypatch):
+    research = load_research_history("ADRO", "5y")
+    snapshot = MarketSnapshot(
+        symbol="ADRO",
+        source="research_dataset",
+        data_as_of=research["date"].max().date(),
+        warning=None,
+        frame=research,
+    )
+    monkeypatch.setattr(backend_api, "get_market_snapshot", lambda *_args, **_kwargs: snapshot)
+
+    def broken_model(*_args, **_kwargs):
+        raise ModelInferenceError("inference gagal")
+
+    monkeypatch.setattr(backend_api, "predict_price", broken_model)
+
+    response = client.post("/api/v1/predictions/ADRO?horizon_days=20")
+
+    assert response.status_code == 503
+    with SessionLocal() as db:
+        rows = db.query(PredictionRequest).all()
+    assert [(row.status, row.error_message) for row in rows] == [("failed", "inference gagal")]
+
+
+def test_uncaught_prediction_crash_leaves_no_stuck_pending_request(client, monkeypatch):
+    def yahoo_down(*_args, **_kwargs):
+        raise TimeoutError("provider down")
+
+    def unexpected_crash(*_args, **_kwargs):
+        raise ValueError("unexpected failure inside inference")
+
+    monkeypatch.setattr("market_data.fetch_yahoo_history", yahoo_down)
+    monkeypatch.setattr(backend_api, "predict_price", unexpected_crash)
+
+    with pytest.raises(ValueError):
+        client.post("/api/v1/predictions/ADRO?horizon_days=20")
+
+    with SessionLocal() as db:
+        rows = db.query(PredictionRequest).all()
+    assert rows == [], f"crash left request rows behind: {[(r.id, r.status) for r in rows]}"

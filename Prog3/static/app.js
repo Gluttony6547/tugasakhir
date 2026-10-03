@@ -1,5 +1,6 @@
 const symbolSelect = document.querySelector("#symbol-select");
 const periodSelect = document.querySelector("#period-select");
+const horizonSelect = document.querySelector("#horizon-select");
 const statusLine = document.querySelector("#page-status");
 const refreshButton = document.querySelector("#refresh-button");
 const runPredictionButton = document.querySelector("#run-prediction");
@@ -10,6 +11,7 @@ const chartSource = document.querySelector("#chart-source");
 const signalSummary = document.querySelector("#signal-summary");
 const historyRows = document.querySelector("#history-rows");
 let marketRequestId = 0;
+const historyEmptyMessage = "Prediksi yang dijalankan akan tercatat di sini.";
 
 const currencyFormat = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -45,10 +47,12 @@ async function requestJson(url, options) {
 }
 
 function setBusy(button, busy, label) {
+  const alreadyBusy = button.getAttribute("aria-busy") === "true";
   button.disabled = busy;
   button.setAttribute("aria-busy", String(busy));
   if (busy) {
-    button.dataset.originalLabel = button.textContent;
+    // Overlapping refreshes must not overwrite the saved label with the busy text.
+    if (!alreadyBusy) button.dataset.originalLabel = button.textContent;
     button.textContent = label;
   } else if (button.dataset.originalLabel) {
     button.textContent = button.dataset.originalLabel;
@@ -200,7 +204,7 @@ function clearMarketView(message) {
   document.querySelector("#prediction-result").hidden = true;
   historyRows.replaceChildren();
   document.querySelector("#history-count").textContent = "Belum ada catatan";
-  document.querySelector("#history-empty").textContent = "Prediksi yang dijalankan akan tercatat di sini.";
+  document.querySelector("#history-empty").textContent = historyEmptyMessage;
   document.querySelector("#history-empty").hidden = false;
   document.querySelector("#history-table-wrap").hidden = true;
 }
@@ -210,6 +214,7 @@ function renderHistory(predictions) {
   const empty = document.querySelector("#history-empty");
   const table = document.querySelector("#history-table-wrap");
   document.querySelector("#history-count").textContent = `${predictions.length} catatan`;
+  empty.textContent = historyEmptyMessage;
   empty.hidden = predictions.length > 0;
   table.hidden = predictions.length === 0;
 
@@ -236,8 +241,16 @@ function renderHistory(predictions) {
 }
 
 async function loadHistory(symbol, requestId = marketRequestId) {
-  const predictions = await requestJson(`/api/v1/predictions/history/${encodeURIComponent(symbol)}?limit=20`);
-  if (requestId !== marketRequestId || symbol !== symbolSelect.value) return;
+  const horizonDays = horizonSelect.value;
+  const query = new URLSearchParams({ horizon_days: horizonDays, limit: "20" });
+  const predictions = await requestJson(
+    `/api/v1/predictions/history/${encodeURIComponent(symbol)}?${query}`,
+  );
+  if (
+    requestId !== marketRequestId
+    || symbol !== symbolSelect.value
+    || horizonDays !== horizonSelect.value
+  ) return;
   renderHistory(predictions);
   if (predictions.length) {
     renderPrediction(predictions[0]);
@@ -281,24 +294,35 @@ async function refreshMarketData() {
 
 async function runPrediction() {
   const symbol = symbolSelect.value;
+  const horizonDays = horizonSelect.value;
+  document.querySelector("#horizon-caption").textContent = `HORIZON ${horizonDays} HARI BURSA`;
   setBusy(runPredictionButton, true, "Menghitung...");
-  setStatus(`Menjalankan model LSTM untuk ${symbol}...`);
+  setStatus(`Menjalankan model LSTM ${symbol} untuk ${horizonDays} hari bursa...`);
   try {
-    const prediction = await requestJson(`/api/v1/predictions/${encodeURIComponent(symbol)}`, {
+    const prediction = await requestJson(
+      `/api/v1/predictions/${encodeURIComponent(symbol)}?horizon_days=${horizonDays}`,
+      {
       method: "POST",
-    });
-    if (symbolSelect.value === symbol) {
+      },
+    );
+    if (symbolSelect.value === symbol && horizonSelect.value === horizonDays) {
       renderPrediction(prediction);
-      await loadHistory(symbol);
       const sourceWarning = prediction.data_source === "research_dataset"
         ? " Hasil ini memakai dataset penelitian historis."
         : prediction.data_source === "database_cache"
           ? " Hasil ini memakai data harga tersimpan."
           : "";
-      setStatus(`Prediksi ${symbol} tersimpan.${sourceWarning}`, "success");
+      setStatus(`Prediksi ${symbol} untuk ${horizonDays} hari tersimpan.${sourceWarning}`, "success");
+      try {
+        await loadHistory(symbol);
+      } catch (historyError) {
+        setStatus(`Prediksi tersimpan, tetapi riwayat gagal dimuat: ${historyError.message}`, "warning");
+      }
     }
   } catch (error) {
-    if (symbolSelect.value === symbol) setStatus(error.message, "error");
+    if (symbolSelect.value === symbol && horizonSelect.value === horizonDays) {
+      setStatus(error.message, "error");
+    }
   } finally {
     setBusy(runPredictionButton, false);
   }
@@ -324,6 +348,11 @@ document.querySelector("#market-controls").addEventListener("submit", (event) =>
 });
 symbolSelect.addEventListener("change", refreshMarketData);
 periodSelect.addEventListener("change", refreshMarketData);
+horizonSelect.addEventListener("change", () => {
+  const horizonDays = horizonSelect.value;
+  document.querySelector("#horizon-caption").textContent = `HORIZON ${horizonDays} HARI BURSA`;
+  loadHistory(symbolSelect.value).catch((error) => setStatus(error.message, "error"));
+});
 runPredictionButton.addEventListener("click", runPrediction);
 themeToggle.addEventListener("click", () => {
   const darkMode = document.documentElement.dataset.theme !== "dark";

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4f5f1">
-    <meta name="description" content="Dashboard penelitian prediksi harga saham IDX dengan model LSTM horizon 50 hari.">
+    <meta name="description" content="Dashboard penelitian saham IDX dengan model LSTM untuk horizon 1, 5, 10, 20, dan 50 hari.">
     <link rel="icon" href="data:,">
     <title>Riset Saham | Prediksi IDX</title>
     <link rel="stylesheet" href="/static/app.css">
@@ -30,7 +30,7 @@
         <div>
           <p class="section-kicker">SISTEM PENDUKUNG KEPUTUSAN</p>
           <h1 id="page-title">Prediksi harga saham</h1>
-          <p class="intro">Perkiraan harga 50 hari bursa dari model LSTM penelitian.</p>
+          <p class="intro">Perkiraan harga pada horizon pilihan dari model LSTM penelitian.</p>
         </div>
         <form id="market-controls" class="market-controls">
           <label>
@@ -43,6 +43,16 @@
               <option value="6mo">6 bulan</option>
               <option value="1y" selected>1 tahun</option>
               <option value="5y">5 tahun</option>
+            </select>
+          </label>
+          <label>
+            <span>Horizon prediksi</span>
+            <select id="horizon-select" name="horizon_days" aria-label="Pilih horizon prediksi">
+              <option value="1">1 hari bursa</option>
+              <option value="5">5 hari bursa</option>
+              <option value="10">10 hari bursa</option>
+              <option value="20">20 hari bursa</option>
+              <option value="50" selected>50 hari bursa</option>
             </select>
           </label>
           <button id="refresh-button" class="button button-primary" type="submit">Perbarui data</button>
@@ -105,7 +115,7 @@
         <div id="predictions" class="panel prediction-panel">
           <div class="panel-heading">
             <div>
-              <p class="section-kicker">HORIZON 50 HARI BURSA</p>
+              <p id="horizon-caption" class="section-kicker">HORIZON 50 HARI BURSA</p>
               <h2>Hasil prediksi</h2>
             </div>
             <button id="run-prediction" class="button button-primary" type="button">
@@ -123,9 +133,10 @@
             <div><dt>Sumber harga</dt><dd id="prediction-source">Belum tersedia</dd></div>
           </dl>
           <p class="method-note">
-            Sinyal BELI atau JUAL memakai ambang perubahan ±11%. Model ini hanya memakai 50 harga
-            penutupan, bukan berita atau ensemble multimodal. Dataset latih yang tersedia berakhir
-            25 Sep 2023; performa setelah tanggal itu belum tervalidasi. Hasil bukan jaminan kinerja.
+            Model memakai harga penutupan saja, bukan berita atau ensemble multimodal. Ambang sinyal
+            mengikuti horizon: ±1,5% (1 hari), ±3% (5 hari), ±6% (10 hari), ±9% (20 hari), dan
+            ±11% (50 hari). Dataset latih berakhir 25 Sep 2023; performa setelah tanggal itu belum
+            tervalidasi. Hasil bukan jaminan kinerja.
           </p>
         </div>
       </section>
