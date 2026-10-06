@@ -155,7 +155,7 @@ Settings, all read from the environment at call time:
 
 | Env var | Default | Meaning |
 | --- | --- | --- |
-| `PROG5_SCHEDULE_TIMES` | `17:30` | Local HH:MM list, comma separated. 17:30 WIB is after the IDX close and Yahoo's EOD update; adjust if the provider posts later. |
+| `PROG5_SCHEDULE_TIMES` | `17:30,21:00` | Local HH:MM list, comma separated. Both slots run per weekday: Yahoo's EOD update usually lands by 17:30 WIB but sometimes drifts later, so the evening slot re-runs the pipeline and fills any gap. |
 | `PROG5_SCHEDULE_DAYS` | `mon,tue,wed,thu,fri` | Weekday names; weekends stay quiet because IDX does not trade. |
 | `PROG5_SCHEDULE_SYMBOLS` | all ten | Tickers refreshed by a scheduled run. |
 | `PROG5_SCHEDULE_RETRY_ATTEMPTS` | `2` | Extra attempts after a failed run. |
@@ -175,13 +175,40 @@ Running it on this Windows host, no Docker:
 3. Detached process (no console window), from PowerShell:
    `Start-Process python -ArgumentList '-m','prog5.cli','schedule'`. Stop it
    with Task Manager or `taskkill`.
-4. One command: `Prog5\scripts\install-windows-task.cmd` registers
-   "Prog5 daily refresh" for weekdays at 17:35 local. The task runs
+4. One command: `Prog5\scripts\install-windows-task.cmd` registers two
+   weekday tasks, "Prog5 daily refresh" at 17:35 and "Prog5 daily refresh
+   evening" at 21:05, each shortly after a pipeline slot so the due check
+   cannot race the trigger. Both run
    `Prog5\scripts\run-scheduled-refresh.cmd`, which does the due check, appends
-   to `Prog5\data\scheduler.log`, and accepts `--force` for manual repair. It
-   runs as the signed-in user, so it only fires while that user is logged on;
-   a missed evening is recovered by the next run because every refresh fetches
-   the full five-year history.
+   to `Prog5\data\scheduler.log`, and accepts `--force` for manual repair. The
+   runner re-reads `PROG5_DATABASE_URL` from the user registry every tick, so
+   `setx` takes effect without a fresh logon. The tasks run as the signed-in
+   user, so they only fire while that user is logged on; a missed evening is
+   recovered by the next run because every refresh fetches the full five-year
+   history.
+
+## Trading-day target dates
+
+The artifacts predict H trading sessions ahead, but a horizon alone does not
+tell a reader when the prediction lands. `prog5/trading_calendar.py` projects
+the calendar date: IDX trades Monday to Friday, so `target_date(data_as_of, H)`
+walks H weekdays forward and never returns a Saturday or Sunday. 2026-10-06
+(Tue) + 10 sessions is 2026-10-20 (Tue), with two weekends skipped; Friday + 1
+is Monday; H=0 returns the start date. Exchange holidays are not modeled
+because Yahoo returns no rows for them and the freshness label already absorbs
+the gap.
+
+- `Prediction.target_date` (nullable Date) stores the projection per row.
+  `db.init_db()` adds the column to existing databases with an
+  `ALTER TABLE ... ADD COLUMN` when missing; fresh databases get it from
+  `create_all`. Rows predating the column keep NULL and render "n/a" in the UI
+  until their (symbol, horizon, data_as_of) row is refreshed again.
+- The refresh report and the API expose `target_date`. The dashboard's
+  prediction card shows the interval as "Output window" ("06 Oct 2026 to
+  20 Oct 2026, 10 sessions (weekends skipped)") and the prediction-history
+  table gained a Target column.
+- The prediction upsert keys on (symbol, horizon_days, data_as_of), so a
+  re-run for the same session updates the same row instead of adding one.
 
 ## Keeping the deployed database current
 
@@ -191,11 +218,12 @@ the deployed card froze at the snapshot's 2026-10-02 closes until a writer ran
 against the same Neon database. Two writers cover that now:
 
 - GitHub Actions: `.github/workflows/prog5-refresh.yml` runs
-  `python -m prog5.cli refresh` for all ten tickers on weekdays at 17:45 WIB
-  (10:45 UTC). It refuses to run when the `DATABASE_URL` repository secret is
-  missing, so a misconfigured run fails loudly instead of writing to the
-  runner's throwaway SQLite file. The secret is added once under Settings,
-  Secrets and variables, Actions.
+  `python -m prog5.cli refresh` for all ten tickers twice on weekdays, at
+  17:45 and 21:00 WIB (10:45 and 14:00 UTC). The concurrency group keeps the
+  two runs from overlapping. It refuses to run when the `DATABASE_URL`
+  repository secret is missing, so a misconfigured run fails loudly instead of
+  writing to the runner's throwaway SQLite file. The secret is added once under
+  Settings, Secrets and variables, Actions.
 
 Live proof (2026-10-06, GitHub runner, WIB):
 

@@ -368,6 +368,52 @@ the secret question:
 Still open: whether the historical SQLite file should stay in the Vercel image
 once the seed is no longer needed.
 
+## 15. Trading-day targets and a second refresh slot (2026-10-06)
+
+Three requests drove this pass: horizons must be trading-day based, the
+prediction card must show the interval between the data date and the predicted
+date, and data refreshments were still not always updated.
+
+Horizons count trading sessions, so a horizon alone did not tell a reader when
+the prediction lands: T+10 from Tuesday 6 October 2026 lands on Tuesday 20
+October 2026 because two weekends sit in between.
+
+What changed:
+
+- `prog5/trading_calendar.py` projects the calendar date: `target_date(
+  data_as_of, H)` walks H weekdays forward, Friday + 1 is Monday, H=0 returns
+  the start date, and the walk never lands on a weekend. Exchange holidays are
+  not modeled; the freshness label already absorbs them.
+- `Prediction.target_date` (nullable Date) is stored per row. `db.init_db()`
+  adds the column to existing databases with an `ALTER TABLE ... ADD COLUMN`
+  when missing and rows predating it keep NULL until refreshed again.
+- The refresh report, the API schema, and the upsert all carry `target_date`.
+- The dashboard's prediction card replaces "Input window" with "Output
+  window": the interval from the data date to the predicted date, labeled with
+  the session count and "weekends skipped". The prediction-history table gained
+  a Target column.
+- Refresh reliability: `PROG5_SCHEDULE_TIMES` now defaults to `17:30,21:00`,
+  the Windows installer registers a second task at 21:05, the workflow gained a
+  14:00 UTC (21:00 WIB) cron, and the scheduled runner re-reads
+  `PROG5_DATABASE_URL` from the user registry every tick so `setx` applies
+  without a fresh logon. A 21:00 run satisfies both slots for the day, and the
+  concurrency group keeps writers from overlapping.
+
+Verified by running:
+
+- `python -m pytest -q` from `Prog5/`: 81 passed (72 before, plus 8 calendar
+  tests and the target-date pipeline test), exit 0.
+- A real refresh of all ten tickers against Neon wrote run #10 (50
+  predictions). The report table shows the target column: ADRO T+10 rows read
+  `2026-10-06 2026-10-20`, the exact interval from the request.
+- One-off backfill of the 100 legacy rows (data_as_of 2026-10-02 and
+  2026-10-05) through the same projection function; zero NULL target dates
+  remain, and Friday 2026-10-02 + 10 sessions lands on 2026-10-16 as expected.
+- Served dashboard (127.0.0.1:8123, Postgres backend): ADRO T+10 shows
+  "Output window: 06 Oct 2026 to 20 Oct 2026, 10 sessions (weekends skipped)",
+  the history table shows Targets 20 Oct / 19 Oct / 16 Oct for data dates 06 /
+  05 / 02 Oct, and the browser console has no errors.
+
 ## antislop Delivery Gate
 
 Block 1, Hard Gate (all "no" by design):

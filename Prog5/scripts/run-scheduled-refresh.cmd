@@ -9,6 +9,10 @@ for %%I in ("%~dp0..") do set "PROG5_DIR=%%~fI"
 cd /d "%PROG5_DIR%"
 if not exist "data" mkdir "data"
 set "LOG=%PROG5_DIR%\data\scheduler.log"
+rem setx does not update running processes, and Task Scheduler inherits the
+rem environment from logon, so a freshly set PROG5_DATABASE_URL would stay
+rem invisible to the task. Re-read the user REG_SZ values every tick.
+for /f "tokens=2,*" %%A in ('reg query "HKCU\Environment" /v PROG5_DATABASE_URL 2^>nul ^| findstr PROG5_DATABASE_URL') do set "PROG5_DATABASE_URL=%%B"
 set "ARGS=%*"
 if "%ARGS%"=="" set "ARGS=--once"
 where python >nul 2>&1 && (set "PYTHON=python") || (set "PYTHON=py -3")

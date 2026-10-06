@@ -224,7 +224,10 @@ def _env_int(name: str, default: int) -> int:
 
 def schedule_times() -> tuple[time, ...]:
     """Local times of day the refresh should run, from PROG5_SCHEDULE_TIMES."""
-    raw = env_value("PROG5_SCHEDULE_TIMES", "17:30") or ""
+    # Two slots per trading day: Yahoo's EOD update for IDX names usually
+    # lands by 17:30 WIB but sometimes drifts later, so the evening slot
+    # catches stragglers and self-heals any missed afternoon run.
+    raw = env_value("PROG5_SCHEDULE_TIMES", "17:30,21:00") or ""
     times: list[time] = []
     for part in raw.split(","):
         part = part.strip()

@@ -48,7 +48,7 @@ def test_a_missing_environment_file_keeps_the_old_defaults(tmp_path, monkeypatch
     assert config.env_file_path().name == "nothing-here.env"
     assert config.database_url() is None
     assert config.db_path() == config.PROJECT_DIR / "data" / "prog5.sqlite3"
-    assert config.schedule_times() == (time(17, 30),)
+    assert config.schedule_times() == (time(17, 30), time(21, 0))
 
 
 def test_the_default_location_is_the_project_directory(monkeypatch):
