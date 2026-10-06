@@ -9,7 +9,7 @@ verified by running, and what the lecturer's artifacts cannot do.
 | --- | --- | --- |
 | Language/runtime | Python 3.12+ (developed on 3.14) | The model artifacts are Keras 3 H5 files; Python is the only practical host. |
 | Web framework | FastAPI + uvicorn | Typed response models, dependency injection for sessions, OpenAPI docs for free. |
-| Persistence | SQLite locally; PostgreSQL/Neon in production, via SQLAlchemy 2.0 | Local setup stays simple while deployed state survives Vercel instance replacement. Prog5 tables are prefixed to coexist with the earlier app. |
+| Persistence | PostgreSQL/Neon by default, reached either from the environment or from a gitignored `Prog5/.env`; SQLite only as a fallback and for tests | Data outlives any instance: the deployed container is read-only and every writer targets the same Postgres. Prog5 tables are prefixed to coexist with the earlier app. |
 | Inference placement | Off the request path. `python -m prog5.cli refresh` writes rows; the API only reads them | The measured cold start of this model under torch is ~13 s (from the earlier Prog3 validation), which is unacceptable per-request. Predictions are EOD data anyway. |
 | Keras backend | `torch`, set in `prog5/__init__.py` before keras imports | TensorFlow is not installed; the artifacts load and run under torch, verified below. |
 | Market data | Yahoo Finance (`.JK` tickers), `auto_adjust=False`, 5-year window | Free, and it returned data through the last trading day (2026-10-02) during the build. |
@@ -196,8 +196,27 @@ against the same Neon database. Two writers cover that now:
   missing, so a misconfigured run fails loudly instead of writing to the
   runner's throwaway SQLite file. The secret is added once under Settings,
   Secrets and variables, Actions.
-- The operator host: set `PROG5_DATABASE_URL` once with `setx` and the Windows
-  task above writes to the same Neon database whenever this machine is on.
+
+Live proof (2026-10-06, GitHub runner, WIB):
+
+- A manual `workflow_dispatch` of `.github/workflows/prog5-refresh.yml` on the
+  deployment repo (run 37379910888, commit `36eb986`) succeeded in 2m39s. The
+  guard step "Refuse to run without the Neon connection string" passed, so the
+  `DATABASE_URL` repository secret exists.
+- Its log shows `DATABASE_URL: ***` in the step environment, all ten tickers
+  fetched from Yahoo Finance, then `refresh run #9 status=completed` and
+  `prices stored=12038 indicator rows stored=12038 predictions=50` between
+  22:04:26Z and 22:05:34Z.
+- The log never names the dialect, so the conclusive check is on the database
+  side: the same run #9 is in Neon (`started 2026-10-05 22:04:33.419344`,
+  `finished 2026-10-05 22:05:15.215378`, all ten symbols,
+  `prices=12038 indicators=12038 predictions=50 warnings=10`) and
+  `https://pokonya-lulus.vercel.app/api/v1/health` serves that row with
+  `"storage_backend":"postgresql"`. The runner can only have written it through
+  the secret, so it did not touch its throwaway SQLite file.
+- The operator host: set `PROG5_DATABASE_URL` in `Prog5/.env` (or in the
+  environment) and the Windows task above writes to the same Neon database
+  whenever this machine is on.
 
 Both entry points call the same `refresh()` pipeline and the same upserts, so
 running both is redundant but not corrupting; the only duplicate is a run row.
@@ -234,6 +253,45 @@ Live proof (2026-10-05, Windows, WIB):
 - Served UI after the ticks: ADRO T+1 2,635.43 IDR buy, last close 2,590,
   "DATA AS OF 05 Oct 2026 today", Fresh badge, and runs #7 and #8 both listed;
   browser console had no errors and every request was a 200.
+
+## Where the data lives (Postgres, 2026-10-06)
+
+The local host now stores into the same Neon database the deployment reads;
+SQLite is only the fallback when no Postgres URL is configured.
+
+`prog5/config.py` reads an optional, gitignored `Prog5/.env` after the real
+environment (`env_value()`), so a workstation no longer depends on `setx` or
+on a fresh logon for `PROG5_DATABASE_URL` to take effect:
+
+- Real environment variables always win, and an empty value counts as unset.
+- A missing file is not an error; a clean checkout keeps the old SQLite path.
+- `PROG5_ENV_FILE` points the lookup elsewhere. `tests/conftest.py` uses it to
+  keep the suite on temporary SQLite files and now also asserts
+  `config.database_url() is None` in `temp_db`, so a developer's live URL can
+  never be written to by `python -m pytest`.
+- `Prog5/.env.example` documents the four accepted names
+  (`PROG5_DATABASE_URL`, `DATABASE_URL_POOLED`, `DATABASE_URL_UNPOOLED`,
+  `DATABASE_URL`); only values starting `postgres://`, `postgresql://` or
+  `postgresql+` switch storage over.
+
+Proof that one database serves both ends (2026-10-06, WIB):
+
+- With every `*DATABASE_URL*` variable removed from the shell, `python -m
+  prog5.cli refresh --symbols TLKM` resolved the URL from `.env`, printed
+  `refresh run #8 status=completed`, and left `Prog5/data/prog5.sqlite3`
+  untouched (its newest run was still #9 from the previous day).
+- `/api/v1/health` on this host and on `https://pokonya-lulus.vercel.app`
+  returned the same `last_run` block, byte-identical down to
+  `started_at=2026-10-05T21:48:54.608338` and
+  `summary=prices=1204 indicators=1204 predictions=5 warnings=1`, both with
+  `"storage_backend":"postgresql"`. The deployment is therefore reading the
+  row this laptop wrote, not a baked snapshot.
+- The dashboard footer reflects it: "Stored in PostgreSQL", 12,048 price rows,
+  12,048 indicator rows, 100 predictions, last refresh #8.
+
+The one thing this host cannot verify is whether the GitHub Actions secret
+`DATABASE_URL` exists: secrets are write-only through the API. The workflow
+fails loudly if it is absent.
 
 ## What the artifacts cannot support
 
@@ -282,7 +340,7 @@ scripts/                 Windows Task Scheduler runner and one-command installer
 ```powershell
 cd Prog5
 python -m pip install -r requirements-dev.txt
-python -m pytest -q                       # 48 tests
+python -m pytest -q                       # 72 tests
 python -m prog5.cli inventory             # artifact check per ticker
 python -m prog5.cli verify --symbols ADRO # replication against research CSVs
 python -m prog5.cli refresh --symbols ADRO,BMRI
@@ -293,4 +351,6 @@ python -m prog5.cli serve                 # /docs for the API, /app for the dash
 ```
 
 Environment overrides: `PROG5_DB_PATH`, `PROG5_ARTIFACT_DIR`,
-`PROG5_RESEARCH_DATA_DIR`.
+`PROG5_RESEARCH_DATA_DIR`, `PROG5_DATABASE_URL` (Postgres switches storage
+over), `PROG5_ENV_FILE` (where the optional `.env` is read from). The same
+names work in `Prog5/.env`; see `Prog5/.env.example`.

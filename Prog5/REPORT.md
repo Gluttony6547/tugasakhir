@@ -296,13 +296,77 @@ Commands and observations, in order:
 Not delivered from this machine:
 
 - The GitHub Actions writer (`.github/workflows/prog5-refresh.yml`) needs the
-  `DATABASE_URL` repository secret and a push to `Gluttony6547/pokonyaLULUS`;
-  neither was done in this session. Until one of those happens, the deployed
-  site still reads the original snapshot.
+  `DATABASE_URL` repository secret; the workflow was pushed to
+  `Gluttony6547/pokonyaLULUS` as `36eb986` later that day. The secret is the
+  only part that cannot be checked from here, and the job fails loudly without
+  it. Until it is set, the operator host remains the writer.
 - Yahoo Finance fetches from GitHub's datacenter IPs can be rate limited; the
   operator host path has no such limitation, and both writers are idempotent.
 - A Task Scheduler run missed while the user is signed out is recovered by the
   next weekday run, because every refresh stores the full five-year history.
+
+## 14. Postgres by default (2026-10-06)
+
+Storage moved from the local SQLite file to the Neon database the deployment
+reads, on both ends of the pipeline.
+
+What changed:
+
+- `prog5/config.py` resolves settings through `env_value()`: a real environment
+  variable first, then the optional gitignored `Prog5/.env`, then the built-in
+  default. `PROG5_ENV_FILE` relocates that file and an absent file changes
+  nothing, so a clean checkout behaves exactly as before.
+- `Prog5/.env` (untracked; matched by the root `.gitignore` entry `.env`) now
+  holds `PROG5_DATABASE_URL`, which removes the earlier dependence on `setx`
+  plus a fresh logon for the Task Scheduler job.
+- `Prog5/.env.example` documents the four accepted names and the URL prefixes
+  that switch storage over.
+- `tests/conftest.py` gained an autouse fixture that points `PROG5_ENV_FILE` at
+  a nonexistent file and removes the four Postgres variables, and `temp_db`
+  now asserts `config.database_url() is None`. Without that guard the suite
+  would have written to the production Neon database on any machine carrying
+  this `.env`.
+- `tests/test_config.py` (8 cases) covers file loading, precedence, empty
+  values, comments, quotes, `export` lines, and SQLite URLs not counting as
+  Postgres.
+
+Verified by running:
+
+- `python -m pytest -q` from `Prog5/`: 72 passed, exit 0, with the live `.env`
+  present the whole time.
+- With all four `*DATABASE_URL*` variables deleted from the shell, `python -m
+  prog5.cli refresh --symbols TLKM` printed `refresh run #8 status=completed`
+  and `prices stored=1204 indicator rows stored=1204 predictions=5`; the
+  SQLite file kept the previous day's newest run (#9) and unchanged row counts,
+  so no write went to it.
+- `GET /api/v1/health` on this host returned `"storage_backend":"postgresql"`,
+  12,048 price rows, 12,048 indicator rows, 100 predictions, last run #8.
+- `GET https://pokonya-lulus.vercel.app/api/v1/health` returned the same
+  `last_run` object, identical down to `started_at 2026-10-05T21:48:54.608338`
+  and `summary prices=1204 indicators=1204 predictions=5 warnings=1`, also
+  `postgresql`. One database is now the single source of truth for the laptop
+  and the deployment, and the alias answers without Vercel Authentication.
+- Dashboard footer in the served UI: "Stored in PostgreSQL", 12,048 price
+  rows, 12,048 indicator rows, 100 predictions, last refresh #8 completed.
+
+The GitHub Actions writer was then triggered for the first time, which closes
+the secret question:
+
+- `workflow_dispatch` on `36eb986` produced run 37379910888 (2026-10-06 05:02
+  WIB) and finished success in 2m39s; every step passed, including "Refuse to
+  run without the Neon connection string", so `secrets.DATABASE_URL` is set.
+- Step 6's log line shows `DATABASE_URL: ***`, ten Yahoo Finance fetches, then
+  `refresh run #9 status=completed` and `prices stored=12038 indicator rows
+  stored=12038 predictions=50`.
+- Log text cannot prove which engine served that write, so it was cross
+  checked against the database: Neon holds run #9 with the same window
+  (`22:04:33.419344` to `22:05:15.215378`), all ten symbols, and
+  `prices=12038 indicators=12038 predictions=50 warnings=10`, and the deployed
+  `/api/v1/health` returns that same row with `"storage_backend":"postgresql"`.
+  The runner wrote to the shared Postgres, not to its own SQLite file.
+
+Still open: whether the historical SQLite file should stay in the Vercel image
+once the seed is no longer needed.
 
 ## antislop Delivery Gate
 
