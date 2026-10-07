@@ -75,6 +75,20 @@ def _backfill_missing_columns(created: Engine) -> None:
                 connection.execute(
                     text("ALTER TABLE prog5_predictions ADD COLUMN target_date DATE")
                 )
+        if "prog5_refresh_telemetry" in inspector.get_table_names():
+            telemetry_columns = {
+                column["name"]
+                for column in inspect(created).get_columns("prog5_refresh_telemetry")
+            }
+            for missing in ("source", "key", "success_at", "updated_at"):
+                if missing not in telemetry_columns:
+                    connection.execute(
+                        text(
+                            f'ALTER TABLE prog5_refresh_telemetry ADD COLUMN {missing} '
+                            f'{"DATETIME" if missing == "success_at" else "VARCHAR(64)" if missing == "key" else "VARCHAR(32)"}'
+                            + (" DEFAULT NULL" if missing == "success_at" else "")
+                        )
+                    )
 
 
 def _migrate_legacy_sqlite_tables(created: Engine) -> None:

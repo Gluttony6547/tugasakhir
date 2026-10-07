@@ -121,3 +121,26 @@ class Prediction(Base):
     target_scale: Mapped[float] = mapped_column(Float, nullable=False)
     warnings: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+
+
+class RefreshTelemetry(Base):
+    """Persistent record of the last successful refresh per source.
+
+    The scheduler and the dashboard use this to answer "when was the data last
+    actually refreshed", not just "when did a run last start". On PostgreSQL
+    the uniqueness is backoff-keyed by an explicit fallback so the same value
+    never races; on SQLite the upsert is unconditional.
+    """
+
+    __tablename__ = "prog5_refresh_telemetry"
+    __table_args__ = (
+        UniqueConstraint(
+            "source", "key", name="uq_prog5_refresh_telemetry_source_key"
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    source: Mapped[str] = mapped_column(String(32), nullable=False)
+    key: Mapped[str] = mapped_column(String(64), nullable=False)
+    success_at: Mapped[datetime | None] = mapped_column(DateTime)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)

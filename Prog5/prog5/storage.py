@@ -11,7 +11,7 @@ from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.orm import Session
 
 from .indicators import INDICATOR_COLUMNS
-from .models import Prediction, Stock, StockPrice, TechnicalIndicator
+from .models import Prediction, RefreshTelemetry, Stock, StockPrice, TechnicalIndicator
 
 
 def _insert(session: Session, model):
@@ -134,3 +134,57 @@ def latest_price_date(session: Session, symbol: str) -> date | None:
         .order_by(StockPrice.price_date.desc())
         .limit(1)
     )
+
+
+def record_successful_refresh(session: Session, source: str, key: str, success_at: datetime | None) -> None:
+    """Write or refresh one telemetry row keyed on (source, key).
+
+    On PostgreSQL the upsert uses a savepoint so the unique constraint is
+    resolved idempotently; on SQLite it is a simple upsert.
+    """
+    payload = {
+        "source": source,
+        "key": key,
+        "success_at": success_at,
+    }
+    dialect = session.get_bind().dialect.name
+    if dialect == "postgresql":
+        try:
+            with session.begin_nested():
+                session.execute(
+                    postgresql_insert(RefreshTelemetry)
+                    .values(**payload)
+                    .on_conflict_do_update(
+                        index_elements=["source", "key"],
+                        set_={
+                            "success_at": payload["success_at"],
+                            "updated_at": _utcnow(),
+                        },
+                    )
+                )
+        except Exception:
+            session.rollback()
+            raise
+    else:
+        statement = (
+            sqlite_insert(RefreshTelemetry)
+            .values(**payload)
+            .on_conflict_do_update(
+                index_elements=["source", "key"],
+                set_={
+                    "success_at": payload["success_at"],
+                    "updated_at": _utcnow(),
+                },
+            )
+        )
+        session.execute(statement)
+
+
+def last_successful_refresh_at(session: Session, source: str, key: str) -> datetime | None:
+    row = session.scalar(
+        select(RefreshTelemetry.success_at)
+        .where(RefreshTelemetry.source == source, RefreshTelemetry.key == key)
+        .order_by(RefreshTelemetry.updated_at.desc())
+        .limit(1)
+    )
+    return row

@@ -32,7 +32,14 @@ from .model_registry import (
 )
 from .models import RefreshRun
 from .signals import classify_return, is_out_of_distribution, out_of_distribution_z, signal_label
-from .storage import ensure_stock, store_indicators, store_prices, store_prediction
+from .storage import (
+    ensure_stock,
+    last_successful_refresh_at,
+    record_successful_refresh,
+    store_indicators,
+    store_prices,
+    store_prediction,
+)
 from .trading_calendar import target_date as project_target_date
 
 logger = logging.getLogger(__name__)
@@ -234,6 +241,12 @@ def _refresh_locked(
                     report.warnings.append(message)
                     continue
 
+                # The input window is the last `horizon` rows of session data,
+                # not a calendar slice. frame["date"] is already trading-day
+                # ordered from fetch_daily_ohlcv, so the first of those H rows
+                # is the window start and the last is data_as_of.
+                window_start = frame["date"].iloc[-horizon]
+
                 identity = model_identity(symbol, horizon)
                 scaler_in = input_scaler(symbol)
                 scaler_out = target_scaler(symbol, horizon)
@@ -253,7 +266,7 @@ def _refresh_locked(
                     "horizon_days": horizon,
                     "data_as_of": data_as_of,
                     "target_date": project_target_date(data_as_of, horizon),
-                    "window_start_date": frame["date"].iloc[-horizon],
+                    "window_start_date": window_start,
                     "window_size": horizon,
                     "last_close": current,
                     "predicted_price": float(predicted),
@@ -281,4 +294,17 @@ def _refresh_locked(
             f"prices={report.prices_stored} indicators={report.indicators_stored} "
             f"predictions={len(report.predictions)} warnings={len(report.warnings)}"
         )
+
+        # Persist the last-successful-refresh fact for the scheduler and the
+        # dashboard. A failed or empty run does not update it, so the UI keeps
+        # showing the most recent genuinely usable data.
+        if report.status == "completed":
+            success_at = run.finished_at
+            record_successful_refresh(session, "refresh", "last_completed", success_at)
+            # For the scheduler's short-circuit check we also persist the
+            # window in which this run counts as satisfying a slot: anything
+            # that finished after the start of the due window is newer than a
+            # slot that could be due right now.
+            record_successful_refresh(session, "scheduler", "last_completed", success_at)
     return report
+

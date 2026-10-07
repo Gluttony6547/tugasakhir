@@ -25,6 +25,7 @@ from sqlalchemy import select
 from . import config, db
 from .models import RefreshRun
 from .refresh import RefreshInProgress, RefreshReport, reconcile_interrupted_runs, refresh
+from .storage import record_successful_refresh
 
 logger = logging.getLogger(__name__)
 
@@ -110,6 +111,12 @@ def _execute(symbols: tuple[str, ...], attempts: int, delay_seconds: int) -> Sch
             logger.exception("Scheduled refresh attempt %s/%s crashed", attempt, attempts)
         else:
             if report.status == "completed":
+                # Mirror the telemetry refresh writes the pipeline already did
+                # under the "refresh" source so the due check short-circuits
+                # on the same clock regardless of which writer finished last.
+                success_at = datetime.now(timezone.utc).replace(tzinfo=None)
+                with db.session() as session:
+                    record_successful_refresh(session, "scheduler", "last_completed", success_at)
                 return ScheduledOutcome(
                     True,
                     f"refresh run #{report.run_id} completed "
